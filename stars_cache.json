@@ -150,15 +150,6 @@
     ],
     "summary": "iOS 越狱与插件编译私有 SDK 符号集合库"
   },
-  "Inkiai/m3e-canvas": {
-    "name": "m3e-canvas",
-    "full_name": "Inkiai/m3e-canvas",
-    "html_url": "https://github.com/Inkiai/m3e-canvas",
-    "categories": [
-      "前端 UI 与动效"
-    ],
-    "summary": "浏览器端 Material 3 设计画布与 AI 提示词生成工具"
-  },
   "HaichaoLihc/create-photo-flipbook-ui": {
     "name": "create-photo-flipbook-ui",
     "full_name": "HaichaoLihc/create-photo-flipbook-ui",
@@ -314,5 +305,15 @@
       "浏览器扩展"
     ],
     "summary": "纯前端本地无损移除 Gemini 图像与视频隐形水印"
+  },
+  "lnkiai/m3e-canvas": {
+    "name": "m3e-canvas",
+    "full_name": "lnkiai/m3e-canvas",
+    "html_url": "https://github.com/lnkiai/m3e-canvas",
+    "categories": [
+      "前端 UI 与动效",
+      "AI Agent 与工具"
+    ],
+    "summary": "在浏览器草绘UI界面并生成AI编程提示词"
   }
 }
