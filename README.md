@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./image/Frieren.gif" width="200" alt="Frieren" />
+  <img src="./image/Frieren.gif" width="240" alt="Frieren" />
 </p>
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
