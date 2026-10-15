@@ -3,14 +3,12 @@ import requests
 import json
 import re
 import time
-import base64
 
 # ================= 核心配置 =================
 GITHUB_USERNAME = "WeiErLiTeo"
 CACHE_FILE = "stars_cache.json"
 README_FILE = "README.md"
 IMAGE_DIR = "image"
-STAR_GIF_PATH = os.path.join(IMAGE_DIR, "star.gif")
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 GH_TOKEN = os.environ.get("GITHUB_TOKEN")
@@ -36,31 +34,13 @@ if GH_TOKEN:
     HEADERS["Authorization"] = f"token {GH_TOKEN}"
 
 
-def ensure_star_asset():
-    """本地内置生成高质量卡通闪烁星星 GIF，无需依赖外部下载"""
-    if not os.path.exists(IMAGE_DIR):
-        os.makedirs(IMAGE_DIR, exist_ok=True)
-
-    if not os.path.exists(STAR_GIF_PATH):
-        # 内置标准的 32x32 卡通金色闪烁星动图 Base64，杜绝外部链接 404
-        star_b64 = (
-            "R0lGODlhIAAgAPQAAP///8zMzP/g4P+wsP9QUODg4P8AAMDAwPDw8O/v7/Dw4LCw"
-            "sNDQ0K+vr7CwsICAgGBgYMDAwEBAQAAAAP///////////////////////////////"
-            "////////////////yH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGgg"
-            "R0lNUCBvbiBhIE1hYy5AIf8LTkVUU0NBUEUyLjADAQAAACH5BAQKAAAALAAAAAAg"
-            "ACAAAAWVYCWOZGmeaKqubOt+byzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRK"
-            "rVqv2Kx2y+16v+CweEwum8/otHrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJ"
-            "io+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9"
-            "vr/AwYLCEAAh+QQFCgAPACwAAAAAIAAgAAAFmCAljmRpnmiqrmzrvnAsz3Rt33iu"
-            "73zv/8CgcEgsGo/IpHLJbDqf0Kh0Sq1ar9isdsvter/gsHhMLpvP6LR6zW673/C4"
-            "fE6v2+/4vH7P7/v/gIGCg4SFhoeIiYqPkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaan"
-            "qKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMGCOw=="
-        )
-        try:
-            with open(STAR_GIF_PATH, "wb") as f:
-                f.write(base64.b64decode(star_b64))
-        except Exception:
-            pass
+def get_star_gif_path():
+    """兼容大小写：优先检测 Star.gif，其次匹配 star.gif"""
+    if os.path.exists(os.path.join(IMAGE_DIR, "Star.gif")):
+        return "./image/Star.gif"
+    if os.path.exists(os.path.join(IMAGE_DIR, "star.gif")):
+        return "./image/star.gif"
+    return "./image/Star.gif"
 
 
 def get_item_categories(item):
@@ -181,26 +161,27 @@ def summarize_with_tiered_chain(full_name, desc):
 
 
 def render_compact_readme(cache_data):
-    """支持多标签展示的高密度优雅排版"""
+    """排版：顶部小人微调为 200px 居中、标题匹配 32px 星星、导航宽松靠左"""
     total_count = len(cache_data)
 
-    # 动态汇聚所有分类（包含预设分类和未来可能新增的分类）
+    # 动态汇聚所有分类
     all_categories = list(DEFAULT_CATEGORIES)
     for item in cache_data.values():
         for cat in get_item_categories(item):
             if cat not in all_categories:
                 all_categories.append(cat)
 
-    # 1. 顶部小人：居中，大小克制（240px）
+    # 1. 顶部小人：宽度微调至 200px，保留呼吸感
     content = '<p align="center">\n'
-    content += '  <img src="./image/Frieren.gif" width="240" alt="Frieren" />\n'
+    content += '  <img src="./image/Frieren.gif" width="200" alt="Frieren" />\n'
     content += '</p>\n\n'
 
-    # 2. 标题区：左对齐，带本地动态星星动图
-    content += '# <img src="./image/star.gif" width="28" height="28" valign="middle" alt="Star" /> Star Notes\n\n'
+    # 2. 标题区：使用本地 Star.gif，尺寸设置为 32x32 与大标题字号齐平
+    star_path = get_star_gif_path()
+    content += f'# <img src="{star_path}" width="32" height="32" valign="middle" alt="Star" /> Star Notes\n\n'
     content += f'> 自动同步于 GitHub Actions · 共收录 **{total_count}** 个项目\n\n'
 
-    # 3. 快速导航：标准字号、无反引号、每行 2 个并拉开间距
+    # 3. 快速导航：纯左对齐，每行 2 项，行距与字距均做适度拉宽
     content += "### 快速导航\n\n"
 
     valid_categories = []
@@ -213,11 +194,12 @@ def render_compact_readme(cache_data):
             valid_categories.append(cat)
             toc_links.append(f'[{cat} ({count})](#cat-{idx})')
 
-    separator = " &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp; "
+    # 水平拉开间距，竖向使用两段换行拉开行高，显得松散舒适
+    separator = " &emsp;·&emsp; "
     rows = [separator.join(toc_links[i:i + 2]) for i in range(0, len(toc_links), 2)]
-    content += "<br>\n".join(rows) + "\n\n---\n\n"
+    content += "<br><br>\n".join(rows) + "\n\n---\n\n"
 
-    # 4. 正文分类列表（一个项目归属多个分类时，将在每个对应分类下如实呈现）
+    # 4. 正文分类列表：多标签对应呈现
     for idx, cat in enumerate(valid_categories):
         matched = [item for item in cache_data.values() if cat in get_item_categories(item)]
 
@@ -249,9 +231,6 @@ def main():
     if not GEMINI_API_KEY:
         raise ValueError("缺少 GEMINI_API_KEY 环境变量")
 
-    # 保证本地闪烁星图存在
-    ensure_star_asset()
-
     cache = {}
     if os.path.exists(CACHE_FILE):
         try:
@@ -265,16 +244,16 @@ def main():
     starred_list = fetch_all_starred()
     remote_dict = {repo["full_name"]: repo for repo in starred_list if repo.get("full_name")}
 
-    # 1. 仅当你在 GitHub 取消了 Star 时，才同步移出缓存
+    # 移除已取消收藏的项目
     for cached_name in list(cache.keys()):
         if cached_name not in remote_dict:
             del cache[cached_name]
 
-    # 2. 增量筛选：只有【完全不在缓存里】的项目，才算新项目！
+    # 仅对未存在于缓存中的新项目调用 AI
     new_repos = [repo for full_name, repo in remote_dict.items() if full_name not in cache]
 
     if new_repos:
-        print(f"检测到 {len(new_repos)} 个新收藏项目，开始调用 Gemini...")
+        print(f"检测到 {len(new_repos)} 个新增项目，开始处理...")
         new_repos.reverse()
         for repo in new_repos:
             full_name = repo["full_name"]
@@ -289,10 +268,8 @@ def main():
                 "summary": summary
             }
             time.sleep(3)
-    else:
-        print("未检测到新增收藏，直接使用现有缓存渲染，未调用 AI API。")
 
-    # 3. 生成 README 并持久化缓存
+    # 生成 README 并持久化缓存
     readme_content = render_compact_readme(cache)
     with open(README_FILE, "w", encoding="utf-8") as f:
         f.write(readme_content)
@@ -300,7 +277,7 @@ def main():
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
-    print(f"README 更新完成，当前收录 {len(cache)} 个项目。")
+    print(f"更新完成，当前有效收录 {len(cache)} 个项目。")
 
 
 if __name__ == "__main__":
