@@ -1,0 +1,39 @@
+name: 自动同步 Star 备忘录
+
+on:
+  schedule:
+    # 每天早上 8 点和晚上 8 点定时自动执行（UTC 时间 0:00 和 12:00）
+    - cron: '0 0,12 * * *'
+  # 允许在网页仓库 Actions 界面随时点击“Run workflow”手动立即触发
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 授予自动写入 README 权限
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 安装 requests
+        run: pip install requests
+
+      - name: 运行同步脚本
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python sync_stars.py
+
+      - name: 自动提交更新
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md stars_cache.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 自动同步 Star 仓库清单与大白话注释" && git push)
