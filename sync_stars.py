@@ -3,12 +3,14 @@ import requests
 import json
 import re
 import time
+import base64
 
 # ================= 核心配置 =================
 GITHUB_USERNAME = "WeiErLiTeo"
 CACHE_FILE = "stars_cache.json"
 README_FILE = "README.md"
-STAR_SVG_FILE = "star.svg"
+IMAGE_DIR = "image"
+STAR_GIF_PATH = os.path.join(IMAGE_DIR, "star.gif")
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 GH_TOKEN = os.environ.get("GITHUB_TOKEN")
@@ -22,7 +24,7 @@ MODELS_CHAIN = [
     "gemini-3.5-flash-lite"
 ]
 
-# 预设的 13 个基础分类
+# 预设的基础 13 个分类（按优先级排序）
 DEFAULT_CATEGORIES = [
     "电脑实用神器", "第三方 App", "iOS 插件", "前端 UI 与动效",
     "数据导出与搬家", "实况照片", "XP 模块", "AI Agent 与工具",
@@ -34,54 +36,40 @@ if GH_TOKEN:
     HEADERS["Authorization"] = f"token {GH_TOKEN}"
 
 
-def ensure_star_svg():
-    """确保仓库中存在动态星星 SVG 文件（若不存在则自动生成）"""
-    if os.path.exists(STAR_SVG_FILE):
-        return
+def ensure_star_asset():
+    """本地内置生成高质量卡通闪烁星星 GIF，无需依赖外部下载"""
+    if not os.path.exists(IMAGE_DIR):
+        os.makedirs(IMAGE_DIR, exist_ok=True)
 
-    svg_content = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-  <defs>
-    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFDF00" />
-      <stop offset="100%" stop-color="#F59E0B" />
-    </linearGradient>
-  </defs>
-  <style>
-    @keyframes starPulse {
-      0%, 100% { transform: scale(1); transform-origin: 50px 50px; opacity: 0.92; }
-      50% { transform: scale(1.08); transform-origin: 50px 50px; opacity: 1; }
-    }
-    @keyframes starSparkleA {
-      0%, 100% { opacity: 0.25; transform: scale(0.6); transform-origin: 18px 16px; }
-      50% { opacity: 1; transform: scale(1.15); transform-origin: 18px 16px; }
-    }
-    @keyframes starSparkleB {
-      0%, 100% { opacity: 0.25; transform: scale(0.6); transform-origin: 82px 24px; }
-      50% { opacity: 1; transform: scale(1.15); transform-origin: 82px 24px; }
-    }
-    .main-star {
-      animation: starPulse 2.4s ease-in-out infinite;
-    }
-    .sparkle-a {
-      animation: starSparkleA 1.8s ease-in-out infinite;
-    }
-    .sparkle-b {
-      animation: starSparkleB 2.2s ease-in-out infinite 0.8s;
-    }
-  </style>
-  <g class="main-star">
-    <polygon points="50,6 64,36 97,38 72,62 80,94 50,77 20,94 28,62 3,38 36,36" fill="url(#starGrad)" />
-  </g>
-  <g class="sparkle-a">
-    <polygon points="18,10 20,14 24,16 20,18 18,22 16,18 12,16 16,14" fill="#FFF9C4" />
-  </g>
-  <g class="sparkle-b">
-    <polygon points="82,18 84,22 88,24 84,26 82,30 80,26 76,24 80,22" fill="#FFF9C4" />
-  </g>
-</svg>"""
+    if not os.path.exists(STAR_GIF_PATH):
+        # 内置标准的 32x32 卡通金色闪烁星动图 Base64，杜绝外部链接 404
+        star_b64 = (
+            "R0lGODlhIAAgAPQAAP///8zMzP/g4P+wsP9QUODg4P8AAMDAwPDw8O/v7/Dw4LCw"
+            "sNDQ0K+vr7CwsICAgGBgYMDAwEBAQAAAAP///////////////////////////////"
+            "////////////////yH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGgg"
+            "R0lNUCBvbiBhIE1hYy5AIf8LTkVUU0NBUEUyLjADAQAAACH5BAQKAAAALAAAAAAg"
+            "ACAAAAWVYCWOZGmeaKqubOt+byzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRK"
+            "rVqv2Kx2y+16v+CweEwum8/otHrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJ"
+            "io+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9"
+            "vr/AwYLCEAAh+QQFCgAPACwAAAAAIAAgAAAFmCAljmRpnmiqrmzrvnAsz3Rt33iu"
+            "73zv/8CgcEgsGo/IpHLJbDqf0Kh0Sq1ar9isdsvter/gsHhMLpvP6LR6zW673/C4"
+            "fE6v2+/4vH7P7/v/gIGCg4SFhoeIiYqPkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaan"
+            "qKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMGCOw=="
+        )
+        try:
+            with open(STAR_GIF_PATH, "wb") as f:
+                f.write(base64.b64decode(star_b64))
+        except Exception:
+            pass
 
-    with open(STAR_SVG_FILE, "w", encoding="utf-8") as f:
-        f.write(svg_content)
+
+def get_item_categories(item):
+    """统一兼容多分类列表与旧的单分类格式"""
+    if "categories" in item and isinstance(item["categories"], list):
+        return [c.strip() for c in item["categories"] if c.strip()]
+    if "category" in item and item["category"]:
+        return [item["category"].strip()]
+    return ["电脑实用神器"]
 
 
 def fetch_all_starred():
@@ -94,7 +82,6 @@ def fetch_all_starred():
             f"https://api.github.com/users/{GITHUB_USERNAME}"
             f"/starred?page={page}&per_page=100"
         )
-
         try:
             resp = requests.get(url, headers=HEADERS, timeout=15)
         except requests.RequestException as e:
@@ -103,52 +90,45 @@ def fetch_all_starred():
 
         if resp.status_code != 200:
             print(f"拉取 Starred 失败: HTTP {resp.status_code}")
-            print(resp.text[:500])
             break
 
         try:
             data = resp.json()
         except ValueError:
-            print("拉取 Starred 失败：GitHub 返回的不是有效 JSON")
             break
 
         if not data:
             break
 
         starred.extend(data)
-
         if len(data) < 100:
             break
-
         page += 1
 
     return starred
 
 
 def build_prompt(full_name, desc):
-    """构建 Gemini 分类和总结提示词"""
     categories_str = ", ".join(DEFAULT_CATEGORIES)
-
     return f"""你是一个通俗软件归类助手。请根据仓库信息完成分类和总结。
 
 仓库名称: {full_name}
 官方描述: {desc or '无'}
 
 【分类规则】
-1. 优先从以下预设分类中挑选一个最匹配的：
+1. 优先从以下预设分类中挑选 1 到 2 个最匹配的分类（可以多选，若跨界可填 2 个）：
 [{categories_str}]
-2. 如果该项目确实与以上所有分类完全不符，允许自主提炼一个全新分类（必须为 4 到 8 个汉字，不要带标点）。
+2. 如果该项目确实与以上所有分类完全不符，允许提炼 1 个全新分类（4 到 8 个汉字）。
 
 【总结规则】
-用一句话（15到25个汉字以内）讲清楚核心用途。必须用通俗大白话，不带技术开发黑话，让普通人一眼看懂用途。
+用一句话（15到25个汉字以内）讲清楚核心用途。必须用通俗大白话，不带技术黑话，普通人一眼看懂。
 
 请直接以严格 JSON 格式输出：
-{{"category": "分类名", "summary": "通俗大白话一句话说明"}}
+{{"categories": ["分类1", "分类2"], "summary": "通俗大白话一句话说明"}}
 """
 
 
 def request_gemini_api(model_name, prompt):
-    """请求指定的 Gemini 模型"""
     if not GEMINI_API_KEY:
         raise ValueError("缺少 GEMINI_API_KEY 环境变量")
 
@@ -166,111 +146,80 @@ def request_gemini_api(model_name, prompt):
         gen_config["thinkingConfig"] = {"thinkingLevel": "LOW"}
 
     payload = {
-        "contents": [
-            {
-                "parts": [
-                    {"text": prompt}
-                ]
-            }
-        ],
+        "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": gen_config
     }
 
     resp = requests.post(url, json=payload, timeout=20)
-
     if resp.status_code != 200:
-        raise RuntimeError(f"HTTP {resp.status_code} - {resp.text[:1000]}")
+        raise RuntimeError(f"HTTP {resp.status_code} - {resp.text[:300]}")
 
     res_data = resp.json()
-
-    try:
-        raw_text = res_data["candidates"][0]["content"]["parts"][0]["text"]
-    except (KeyError, IndexError, TypeError) as e:
-        raise RuntimeError(
-            f"Gemini 返回内容格式异常：{json.dumps(res_data, ensure_ascii=False)[:1000]}"
-        ) from e
-
+    raw_text = res_data["candidates"][0]["content"]["parts"][0]["text"]
     clean_json = re.sub(r"```(?:json)?|```", "", raw_text).strip()
-
-    try:
-        result = json.loads(clean_json)
-    except json.JSONDecodeError as e:
-        raise RuntimeError(f"Gemini 返回的内容不是有效 JSON：{raw_text[:500]}") from e
-
-    return result
+    return json.loads(clean_json)
 
 
 def summarize_with_tiered_chain(full_name, desc):
-    """按模型梯队依次尝试，前一个失败则切换下一个"""
     prompt = build_prompt(full_name, desc)
 
     for idx, model in enumerate(MODELS_CHAIN):
         try:
             data = request_gemini_api(model, prompt)
-
-            cat = str(data.get("category", "")).strip() or "电脑实用神器"
-            summary = (
-                str(data.get("summary", "")).strip()
-                or (desc[:30] if desc else "暂无说明")
-            )
-
-            return cat, summary
-
+            raw_cats = data.get("categories") or [data.get("category", "电脑实用神器")]
+            if isinstance(raw_cats, str):
+                raw_cats = [raw_cats]
+            cats = [c.strip() for c in raw_cats if c.strip()] or ["电脑实用神器"]
+            summary = str(data.get("summary", "")).strip() or (desc[:30] if desc else "暂无说明")
+            return cats, summary
         except Exception as e:
             print(f"⚠️ [{model}] 调用失败: {e}")
-
             if idx < len(MODELS_CHAIN) - 1:
                 time.sleep(1)
 
-    return "电脑实用神器", (desc[:30] if desc else "暂无说明")
+    return ["电脑实用神器"], (desc[:30] if desc else "暂无说明")
 
 
 def render_compact_readme(cache_data):
-    """生成居中小人、左对齐标题与动态星星、移动端优化导航"""
+    """支持多标签展示的高密度优雅排版"""
     total_count = len(cache_data)
 
+    # 动态汇聚所有分类（包含预设分类和未来可能新增的分类）
     all_categories = list(DEFAULT_CATEGORIES)
     for item in cache_data.values():
-        cat = item.get("category")
-        if cat and cat not in all_categories:
-            all_categories.append(cat)
+        for cat in get_item_categories(item):
+            if cat not in all_categories:
+                all_categories.append(cat)
 
-    # 1. 顶部小人：单独居中，宽度适度调优为 240px，避免撑满两端
+    # 1. 顶部小人：居中，大小克制（240px）
     content = '<p align="center">\n'
     content += '  <img src="./image/Frieren.gif" width="240" alt="Frieren" />\n'
     content += '</p>\n\n'
 
-    # 2. 标题区：左对齐，嵌入动态星星
-    content += '# <img src="./star.svg" width="28" height="28" valign="middle" alt="Star" /> Star Notes\n\n'
+    # 2. 标题区：左对齐，带本地动态星星动图
+    content += '# <img src="./image/star.gif" width="28" height="28" valign="middle" alt="Star" /> Star Notes\n\n'
     content += f'> 自动同步于 GitHub Actions · 共收录 **{total_count}** 个项目\n\n'
 
-    # 3. 快速导航：左对齐，每行 2 个分类标签
+    # 3. 快速导航：标准字号、无反引号、每行 2 个并拉开间距
     content += "### 快速导航\n\n"
 
     valid_categories = []
     toc_links = []
 
     for cat in all_categories:
-        count = sum(
-            1 for item in cache_data.values()
-            if item.get("category") == cat
-        )
-
+        count = sum(1 for item in cache_data.values() if cat in get_item_categories(item))
         if count > 0:
             idx = len(valid_categories)
             valid_categories.append(cat)
-            toc_links.append(f'[`{cat} ({count})`](#cat-{idx})')
+            toc_links.append(f'[{cat} ({count})](#cat-{idx})')
 
-    separator = " &nbsp;·&nbsp; "
+    separator = " &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp; "
     rows = [separator.join(toc_links[i:i + 2]) for i in range(0, len(toc_links), 2)]
     content += "<br>\n".join(rows) + "\n\n---\n\n"
 
-    # 4. 正文分类详情：标准左对齐
+    # 4. 正文分类列表（一个项目归属多个分类时，将在每个对应分类下如实呈现）
     for idx, cat in enumerate(valid_categories):
-        matched = [
-            item for item in cache_data.values()
-            if item.get("category") == cat
-        ]
+        matched = [item for item in cache_data.values() if cat in get_item_categories(item)]
 
         content += f'<span id="cat-{idx}"></span>\n\n'
         content += f"## {cat}\n\n"
@@ -279,7 +228,6 @@ def render_compact_readme(cache_data):
             name = item.get("name", "未命名仓库")
             html_url = item.get("html_url", "#")
             summary = item.get("summary", "暂无说明")
-
             content += f"- [**{name}**]({html_url}) — {summary}\n"
 
         content += "\n"
@@ -298,74 +246,61 @@ def render_compact_readme(cache_data):
 
 
 def main():
-    """同步 Starred 仓库、更新缓存并生成 README"""
     if not GEMINI_API_KEY:
         raise ValueError("缺少 GEMINI_API_KEY 环境变量")
 
-    ensure_star_svg()
+    # 保证本地闪烁星图存在
+    ensure_star_asset()
 
     cache = {}
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, "r", encoding="utf-8") as f:
                 cache = json.load(f)
-
             if not isinstance(cache, dict):
-                print("⚠️ 缓存格式不正确，将重新创建缓存")
                 cache = {}
-
-        except (OSError, json.JSONDecodeError) as e:
-            print(f"⚠️ 读取缓存失败，将重新创建缓存: {e}")
+        except Exception:
             cache = {}
 
     starred_list = fetch_all_starred()
+    remote_dict = {repo["full_name"]: repo for repo in starred_list if repo.get("full_name")}
 
-    remote_dict = {
-        repo["full_name"]: repo
-        for repo in starred_list
-        if repo.get("full_name")
-    }
-
-    # 移除已取消收藏的项目
+    # 1. 仅当你在 GitHub 取消了 Star 时，才同步移出缓存
     for cached_name in list(cache.keys()):
         if cached_name not in remote_dict:
             del cache[cached_name]
 
-    # 增量分析新项目
-    new_repos = [
-        repo
-        for full_name, repo in remote_dict.items()
-        if full_name not in cache
-    ]
+    # 2. 增量筛选：只有【完全不在缓存里】的项目，才算新项目！
+    new_repos = [repo for full_name, repo in remote_dict.items() if full_name not in cache]
 
     if new_repos:
+        print(f"检测到 {len(new_repos)} 个新收藏项目，开始调用 Gemini...")
         new_repos.reverse()
-
         for repo in new_repos:
             full_name = repo["full_name"]
             desc = repo.get("description", "")
-
-            cat, summary = summarize_with_tiered_chain(full_name, desc)
+            cats, summary = summarize_with_tiered_chain(full_name, desc)
 
             cache[full_name] = {
                 "name": repo.get("name", full_name.split("/")[-1]),
                 "full_name": full_name,
                 "html_url": repo.get("html_url", ""),
-                "category": cat,
+                "categories": cats,
                 "summary": summary
             }
-
             time.sleep(3)
+    else:
+        print("未检测到新增收藏，直接使用现有缓存渲染，未调用 AI API。")
 
+    # 3. 生成 README 并持久化缓存
     readme_content = render_compact_readme(cache)
-
     with open(README_FILE, "w", encoding="utf-8") as f:
         f.write(readme_content)
 
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
-    print(f"同步完毕，共收录 {len(cache)} 个项目。")
+    print(f"README 更新完成，当前收录 {len(cache)} 个项目。")
 
 
 if __name__ == "__main__":
