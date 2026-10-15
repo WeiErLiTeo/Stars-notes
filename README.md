@@ -1,22 +1,20 @@
 <p align="center">
- <img src="./image/Frieren.gif" width="320" alt="Frieren" />
+  <img src="./image/Frieren.gif" width="240" alt="Frieren" />
 </p>
 
-# 收藏仓库清单
+# <img src="./star.svg" width="28" height="28" valign="middle" alt="Star" /> Star Notes
 
 > 自动同步于 GitHub Actions · 共收录 **34** 个项目
 
-<h3 align="center">快速导航</h3>
+### 快速导航
 
-<p align="center">
-<a href="#cat-0">电脑实用神器 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-1">第三方 App (3)</a><br>
-<a href="#cat-2">iOS 插件 (4)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-3">前端 UI 与动效 (4)</a><br>
-<a href="#cat-4">数据导出与搬家 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-5">实况照片 (3)</a><br>
-<a href="#cat-6">XP 模块 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-7">AI Agent 与工具 (2)</a><br>
-<a href="#cat-8">福利与自动签到 (1)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-9">壁纸与媒体提取 (2)</a><br>
-<a href="#cat-10">网络与代理 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-11">AI Skills (1)</a><br>
-<a href="#cat-12">浏览器扩展 (4)</a>
-</p>
+[`电脑实用神器 (3)`](#cat-0) &nbsp;·&nbsp; [`第三方 App (3)`](#cat-1)<br>
+[`iOS 插件 (4)`](#cat-2) &nbsp;·&nbsp; [`前端 UI 与动效 (4)`](#cat-3)<br>
+[`数据导出与搬家 (2)`](#cat-4) &nbsp;·&nbsp; [`实况照片 (3)`](#cat-5)<br>
+[`XP 模块 (2)`](#cat-6) &nbsp;·&nbsp; [`AI Agent 与工具 (2)`](#cat-7)<br>
+[`福利与自动签到 (1)`](#cat-8) &nbsp;·&nbsp; [`壁纸与媒体提取 (2)`](#cat-9)<br>
+[`网络与代理 (3)`](#cat-10) &nbsp;·&nbsp; [`AI Skills (1)`](#cat-11)<br>
+[`浏览器扩展 (4)`](#cat-12)
 
 ---
 
@@ -122,5 +120,5 @@
 ---
 
 <p align="center">
- <img src="https://count.getloli.com/get/@WeiErLiTeo-stars-notes?theme=rule34" alt="Moe Counter" />
+  <img src="https://count.getloli.com/get/@WeiErLiTeo-stars-notes?theme=rule34" alt="Moe Counter" />
 </p>
