@@ -236,12 +236,5 @@
     "html_url": "https://github.com/GargantuaX/gemini-watermark-remover",
     "category": "浏览器扩展",
     "summary": "纯前端本地无损移除 Gemini 图像与视频水印"
-  },
-  "google-gemini/gemini-cli": {
-    "name": "gemini-cli",
-    "full_name": "google-gemini/gemini-cli",
-    "html_url": "https://github.com/google-gemini/gemini-cli",
-    "category": "AI Agent 与工具",
-    "summary": "Google 官方终端交互式 Gemini 命令行工具"
   }
 }
