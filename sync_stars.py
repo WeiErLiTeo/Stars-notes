@@ -8,6 +8,7 @@ import time
 GITHUB_USERNAME = "WeiErLiTeo"
 CACHE_FILE = "stars_cache.json"
 README_FILE = "README.md"
+STAR_SVG_FILE = "star.svg"
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 GH_TOKEN = os.environ.get("GITHUB_TOKEN")
@@ -33,6 +34,56 @@ if GH_TOKEN:
     HEADERS["Authorization"] = f"token {GH_TOKEN}"
 
 
+def ensure_star_svg():
+    """确保仓库中存在动态星星 SVG 文件（若不存在则自动生成）"""
+    if os.path.exists(STAR_SVG_FILE):
+        return
+
+    svg_content = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFDF00" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes starPulse {
+      0%, 100% { transform: scale(1); transform-origin: 50px 50px; opacity: 0.92; }
+      50% { transform: scale(1.08); transform-origin: 50px 50px; opacity: 1; }
+    }
+    @keyframes starSparkleA {
+      0%, 100% { opacity: 0.25; transform: scale(0.6); transform-origin: 18px 16px; }
+      50% { opacity: 1; transform: scale(1.15); transform-origin: 18px 16px; }
+    }
+    @keyframes starSparkleB {
+      0%, 100% { opacity: 0.25; transform: scale(0.6); transform-origin: 82px 24px; }
+      50% { opacity: 1; transform: scale(1.15); transform-origin: 82px 24px; }
+    }
+    .main-star {
+      animation: starPulse 2.4s ease-in-out infinite;
+    }
+    .sparkle-a {
+      animation: starSparkleA 1.8s ease-in-out infinite;
+    }
+    .sparkle-b {
+      animation: starSparkleB 2.2s ease-in-out infinite 0.8s;
+    }
+  </style>
+  <g class="main-star">
+    <polygon points="50,6 64,36 97,38 72,62 80,94 50,77 20,94 28,62 3,38 36,36" fill="url(#starGrad)" />
+  </g>
+  <g class="sparkle-a">
+    <polygon points="18,10 20,14 24,16 20,18 18,22 16,18 12,16 16,14" fill="#FFF9C4" />
+  </g>
+  <g class="sparkle-b">
+    <polygon points="82,18 84,22 88,24 84,26 82,30 80,26 76,24 80,22" fill="#FFF9C4" />
+  </g>
+</svg>"""
+
+    with open(STAR_SVG_FILE, "w", encoding="utf-8") as f:
+        f.write(svg_content)
+
+
 def fetch_all_starred():
     """全量分页拉取所有 Starred 仓库"""
     starred = []
@@ -47,7 +98,7 @@ def fetch_all_starred():
         try:
             resp = requests.get(url, headers=HEADERS, timeout=15)
         except requests.RequestException as e:
-            print(f"拉取 Starred 时网络请求失败：{e}")
+            print(f"拉取 Starred 时网络请求失败: {e}")
             break
 
         if resp.status_code != 200:
@@ -171,39 +222,30 @@ def summarize_with_tiered_chain(full_name, desc):
             if idx < len(MODELS_CHAIN) - 1:
                 time.sleep(1)
 
-    # 所有模型均失败时使用兜底结果
     return "电脑实用神器", (desc[:30] if desc else "暂无说明")
 
 
 def render_compact_readme(cache_data):
-    """生成顶部芙莉莲 GIF、居中留白导航和分类详情"""
+    """生成居中小人、左对齐标题与动态星星、移动端优化导航"""
     total_count = len(cache_data)
 
-    # 动态汇聚分类列表，保留默认分类顺序
     all_categories = list(DEFAULT_CATEGORIES)
-
     for item in cache_data.values():
         cat = item.get("category")
         if cat and cat not in all_categories:
             all_categories.append(cat)
 
-    # 1. 顶部：使用仓库内的 Frieren.gif，不再引用外部图片
-    #    图片宽度由 150 放大到 320（单位：像素）
+    # 1. 顶部小人：单独居中，宽度适度调优为 240px，避免撑满两端
     content = '<p align="center">\n'
-    content += (
-        ' <img src="./image/Frieren.gif" '
-        'width="320" alt="Frieren" />\n'
-    )
+    content += '  <img src="./image/Frieren.gif" width="240" alt="Frieren" />\n'
     content += '</p>\n\n'
 
-    content += "# 收藏仓库清单\n\n"
-    content += (
-        f"> 自动同步于 GitHub Actions · 共收录 **{total_count}** 个项目\n\n"
-    )
+    # 2. 标题区：左对齐，嵌入动态星星
+    content += '# <img src="./star.svg" width="28" height="28" valign="middle" alt="Star" /> Star Notes\n\n'
+    content += f'> 自动同步于 GitHub Actions · 共收录 **{total_count}** 个项目\n\n'
 
-    # 2. 快速导航：整体居中、增加间距、保留原有数字锚点
-    content += '<h3 align="center">快速导航</h3>\n\n'
-    content += '<p align="center">\n'
+    # 3. 快速导航：左对齐，每行 2 个分类标签
+    content += "### 快速导航\n\n"
 
     valid_categories = []
     toc_links = []
@@ -217,23 +259,13 @@ def render_compact_readme(cache_data):
         if count > 0:
             idx = len(valid_categories)
             valid_categories.append(cat)
+            toc_links.append(f'[`{cat} ({count})`](#cat-{idx})')
 
-            # 与正文中的 cat-数字锚点保持对应
-            link = (
-                f'<a href="#cat-{idx}">'
-                f'{cat} ({count})'
-                f'</a>'
-            )
-            toc_links.append(link)
-
-    # 使用带空隙的圆点分隔链接。
-    # 每行固定放 2 个，避免分类名在行尾被从中间劈开。
-    separator = " &nbsp;&nbsp;·&nbsp;&nbsp; "
+    separator = " &nbsp;·&nbsp; "
     rows = [separator.join(toc_links[i:i + 2]) for i in range(0, len(toc_links), 2)]
-    content += "<br>\n".join(rows)
-    content += '\n</p>\n\n---\n\n'
+    content += "<br>\n".join(rows) + "\n\n---\n\n"
 
-    # 3. 正文分类详情：保持原有数字锚点和项目列表
+    # 4. 正文分类详情：标准左对齐
     for idx, cat in enumerate(valid_categories):
         matched = [
             item for item in cache_data.values()
@@ -252,11 +284,11 @@ def render_compact_readme(cache_data):
 
         content += "\n"
 
-    # 4. 底部：计数器居中
+    # 5. 底部计数器：居中
     content += "---\n\n"
     content += '<p align="center">\n'
     content += (
-        ' <img src="https://count.getloli.com/'
+        '  <img src="https://count.getloli.com/'
         'get/@WeiErLiTeo-stars-notes?theme=rule34" '
         'alt="Moe Counter" />\n'
     )
@@ -270,7 +302,8 @@ def main():
     if not GEMINI_API_KEY:
         raise ValueError("缺少 GEMINI_API_KEY 环境变量")
 
-    # 读取已有缓存
+    ensure_star_svg()
+
     cache = {}
     if os.path.exists(CACHE_FILE):
         try:
@@ -282,10 +315,9 @@ def main():
                 cache = {}
 
         except (OSError, json.JSONDecodeError) as e:
-            print(f"⚠️ 读取缓存失败，将重新创建缓存：{e}")
+            print(f"⚠️ 读取缓存失败，将重新创建缓存: {e}")
             cache = {}
 
-    # 拉取 GitHub Starred 仓库
     starred_list = fetch_all_starred()
 
     remote_dict = {
@@ -294,12 +326,12 @@ def main():
         if repo.get("full_name")
     }
 
-    # 移除已经取消收藏的仓库
+    # 移除已取消收藏的项目
     for cached_name in list(cache.keys()):
         if cached_name not in remote_dict:
             del cache[cached_name]
 
-    # 分析尚未进入缓存的新增项目
+    # 增量分析新项目
     new_repos = [
         repo
         for full_name, repo in remote_dict.items()
@@ -307,7 +339,6 @@ def main():
     ]
 
     if new_repos:
-        # 保持原有处理顺序
         new_repos.reverse()
 
         for repo in new_repos:
@@ -326,17 +357,15 @@ def main():
 
             time.sleep(3)
 
-    # 重新生成 README.md
     readme_content = render_compact_readme(cache)
 
     with open(README_FILE, "w", encoding="utf-8") as f:
         f.write(readme_content)
 
-    # 更新缓存文件
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
-    print(f"同步与排版更新完毕！共收录 {len(cache)} 个项目。")
+    print(f"同步完毕，共收录 {len(cache)} 个项目。")
 
 
 if __name__ == "__main__":
