@@ -1,0 +1,247 @@
+{
+  "MicYou-Dev/MicYou": {
+    "name": "MicYou",
+    "full_name": "MicYou-Dev/MicYou",
+    "html_url": "https://github.com/MicYou-Dev/MicYou",
+    "category": "电脑实用神器",
+    "summary": "将手机作为电脑的无线麦克风"
+  },
+  "LengxiQwQ/live-photo-box": {
+    "name": "live-photo-box",
+    "full_name": "LengxiQwQ/live-photo-box",
+    "html_url": "https://github.com/LengxiQwQ/live-photo-box",
+    "category": "实况照片",
+    "summary": "Windows 端实况照片跨平台转换工具箱"
+  },
+  "hicccc77/WeFlow": {
+    "name": "WeFlow",
+    "full_name": "hicccc77/WeFlow",
+    "html_url": "https://github.com/hicccc77/WeFlow",
+    "category": "数据导出与搬家",
+    "summary": "微信电脑端聊天记录解密导出与年度报告工具"
+  },
+  "ramjke/Translumo": {
+    "name": "Translumo",
+    "full_name": "ramjke/Translumo",
+    "html_url": "https://github.com/ramjke/Translumo",
+    "category": "电脑实用神器",
+    "summary": "屏幕实时悬浮翻译器，支持游戏与视频划词翻译"
+  },
+  "sansan0/TrendRadar": {
+    "name": "TrendRadar",
+    "full_name": "sansan0/TrendRadar",
+    "html_url": "https://github.com/sansan0/TrendRadar",
+    "category": "AI Skills",
+    "summary": "多平台热搜与舆情监控推送工具"
+  },
+  "Gar-b-age/CookLikeHOC": {
+    "name": "CookLikeHOC",
+    "full_name": "Gar-b-age/CookLikeHOC",
+    "html_url": "https://github.com/Gar-b-age/CookLikeHOC",
+    "category": "电脑实用神器",
+    "summary": "老乡鸡菜品溯源与家常做法复刻指南"
+  },
+  "SteamAutoCracks/WallpaperEngineWorkshopDownloader": {
+    "name": "WallpaperEngineWorkshopDownloader",
+    "full_name": "SteamAutoCracks/WallpaperEngineWorkshopDownloader",
+    "html_url": "https://github.com/SteamAutoCracks/WallpaperEngineWorkshopDownloader",
+    "category": "壁纸与媒体提取",
+    "summary": "免 Steam 下载 Wallpaper Engine 创意工坊壁纸"
+  },
+  "notscuffed/repkg": {
+    "name": "repkg",
+    "full_name": "notscuffed/repkg",
+    "html_url": "https://github.com/notscuffed/repkg",
+    "category": "壁纸与媒体提取",
+    "summary": "Wallpaper Engine PKG/TEX 资源解包与贴图还原工具"
+  },
+  "WeiErLiTeo/MotionCraft": {
+    "name": "MotionCraft",
+    "full_name": "WeiErLiTeo/MotionCraft",
+    "html_url": "https://github.com/WeiErLiTeo/MotionCraft",
+    "category": "实况照片",
+    "summary": "Android 端实况照片查看、转换与制作应用"
+  },
+  "bmaroti9/Overmorrow": {
+    "name": "Overmorrow",
+    "full_name": "bmaroti9/Overmorrow",
+    "html_url": "https://github.com/bmaroti9/Overmorrow",
+    "category": "第三方 App",
+    "summary": "极简设计风格天气应用，支持壁纸动态取色"
+  },
+  "raoxwup/haka_comic": {
+    "name": "haka_comic",
+    "full_name": "raoxwup/haka_comic",
+    "html_url": "https://github.com/raoxwup/haka_comic",
+    "category": "第三方 App",
+    "summary": "哔咔漫画无广告第三方跨平台客户端"
+  },
+  "bggRGjQaUbCoE/PiliPlus": {
+    "name": "PiliPlus",
+    "full_name": "bggRGjQaUbCoE/PiliPlus",
+    "html_url": "https://github.com/bggRGjQaUbCoE/PiliPlus",
+    "category": "第三方 App",
+    "summary": "轻量、无广告的第三方哔哩哔哩客户端"
+  },
+  "pxx917144686/DYYY": {
+    "name": "DYYY",
+    "full_name": "pxx917144686/DYYY",
+    "html_url": "https://github.com/pxx917144686/DYYY",
+    "category": "iOS 插件",
+    "summary": "iOS 抖音增强插件，支持批量无水印下载视频"
+  },
+  "HierarchThurs/DYKiller": {
+    "name": "DYKiller",
+    "full_name": "HierarchThurs/DYKiller",
+    "html_url": "https://github.com/HierarchThurs/DYKiller",
+    "category": "iOS 插件",
+    "summary": "iOS 抖音去广告插件，净化开屏与信息流推广"
+  },
+  "Wtrwx/DYYY": {
+    "name": "DYYY",
+    "full_name": "Wtrwx/DYYY",
+    "html_url": "https://github.com/Wtrwx/DYYY",
+    "category": "iOS 插件",
+    "summary": "iOS 抖音界面微调插件，隐藏多余控件与按钮"
+  },
+  "xybp888/iOS-SDKs": {
+    "name": "iOS-SDKs",
+    "full_name": "xybp888/iOS-SDKs",
+    "html_url": "https://github.com/xybp888/iOS-SDKs",
+    "category": "iOS 插件",
+    "summary": "包含私有框架的 iOS 9-27 SDK 符号包，用于插件编译"
+  },
+  "lnkiai/m3e-canvas": {
+    "name": "m3e-canvas",
+    "full_name": "lnkiai/m3e-canvas",
+    "html_url": "https://github.com/lnkiai/m3e-canvas",
+    "category": "前端 UI 与动效",
+    "summary": "Material 3 画布设计工具，支持导出生成提示词"
+  },
+  "HaichaoLihc/create-photo-flipbook-ui": {
+    "name": "create-photo-flipbook-ui",
+    "full_name": "HaichaoLihc/create-photo-flipbook-ui",
+    "html_url": "https://github.com/HaichaoLihc/create-photo-flipbook-ui",
+    "category": "前端 UI 与动效",
+    "summary": "基于输入图片构建 3D 拟真翻页画册界面的技能组件"
+  },
+  "enzomanuelmangano/demos": {
+    "name": "demos",
+    "full_name": "enzomanuelmangano/demos",
+    "html_url": "https://github.com/enzomanuelmangano/demos",
+    "category": "前端 UI 与动效",
+    "summary": "React Native 物理手势与交互过渡动效参考合集"
+  },
+  "stevenjoezhang/live2d-widget": {
+    "name": "live2d-widget",
+    "full_name": "stevenjoezhang/live2d-widget",
+    "html_url": "https://github.com/stevenjoezhang/live2d-widget",
+    "category": "前端 UI 与动效",
+    "summary": "网页端 Live2D 看板娘挂件"
+  },
+  "Bistutu/GoMusic": {
+    "name": "GoMusic",
+    "full_name": "Bistutu/GoMusic",
+    "html_url": "https://github.com/Bistutu/GoMusic",
+    "category": "数据导出与搬家",
+    "summary": "网易云/QQ音乐/汽水音乐歌单迁移至 Apple Music/Spotify"
+  },
+  "PetrVys/MotionPhoto2": {
+    "name": "MotionPhoto2",
+    "full_name": "PetrVys/MotionPhoto2",
+    "html_url": "https://github.com/PetrVys/MotionPhoto2",
+    "category": "实况照片",
+    "summary": "将 iOS 实况照片打包为 Google/Samsung 动态照片格式"
+  },
+  "Xposed-Modules-Repo/one.dot.rex": {
+    "name": "one.dot.rex",
+    "full_name": "Xposed-Modules-Repo/one.dot.rex",
+    "html_url": "https://github.com/Xposed-Modules-Repo/one.dot.rex",
+    "category": "XP 模块",
+    "summary": "X / Twitter 界面排版自定义与去广告模块"
+  },
+  "dddqmmx/arirang": {
+    "name": "arirang",
+    "full_name": "dddqmmx/arirang",
+    "html_url": "https://github.com/dddqmmx/arirang",
+    "category": "XP 模块",
+    "summary": "阿里郎隐私保护模块，限制应用滥用 API 获取设备敏感信息"
+  },
+  "rehan-remade/universal-modder": {
+    "name": "universal-modder",
+    "full_name": "rehan-remade/universal-modder",
+    "html_url": "https://github.com/rehan-remade/universal-modder",
+    "category": "AI Agent 与工具",
+    "summary": "引导 Claude 进行 PC 游戏逆向并自动编写 Mod 的工具包"
+  },
+  "ghost-in-the-droid/android-agent": {
+    "name": "android-agent",
+    "full_name": "ghost-in-the-droid/android-agent",
+    "html_url": "https://github.com/ghost-in-the-droid/android-agent",
+    "category": "AI Agent 与工具",
+    "summary": "基于 ADB 控制真机运行的 AI Agent 自动化框架"
+  },
+  "develop202/kgcheckin": {
+    "name": "kgcheckin",
+    "full_name": "develop202/kgcheckin",
+    "html_url": "https://github.com/develop202/kgcheckin",
+    "category": "福利与自动签到",
+    "summary": "酷狗音乐概念版自动打卡签到领取 VIP 脚本"
+  },
+  "ssnhd/googlevoice": {
+    "name": "googlevoice",
+    "full_name": "ssnhd/googlevoice",
+    "html_url": "https://github.com/ssnhd/googlevoice",
+    "category": "网络与代理",
+    "summary": "Google Voice 申请流程与防回收保号策略指南"
+  },
+  "byJoey/cfnew": {
+    "name": "cfnew",
+    "full_name": "byJoey/cfnew",
+    "html_url": "https://github.com/byJoey/cfnew",
+    "category": "网络与代理",
+    "summary": "Cloudflare 优选 IP 与网络自动化脚本"
+  },
+  "LOWERTOP/Shadowrocket": {
+    "name": "Shadowrocket",
+    "full_name": "LOWERTOP/Shadowrocket",
+    "html_url": "https://github.com/LOWERTOP/Shadowrocket",
+    "category": "网络与代理",
+    "summary": "小火箭使用手册、模块语法与分流规则指南"
+  },
+  "mmnga/x-ambient": {
+    "name": "x-ambient",
+    "full_name": "mmnga/x-ambient",
+    "html_url": "https://github.com/mmnga/x-ambient",
+    "category": "浏览器扩展",
+    "summary": "Twitter 网页端图片与视频悬浮全屏背景氛围光"
+  },
+  "WesselKroos/youtube-ambilight": {
+    "name": "youtube-ambilight",
+    "full_name": "WesselKroos/youtube-ambilight",
+    "html_url": "https://github.com/WesselKroos/youtube-ambilight",
+    "category": "浏览器扩展",
+    "summary": "YouTube 视频播放器外围实时同步泛光扩展"
+  },
+  "voyager-crew/voyager": {
+    "name": "voyager",
+    "full_name": "voyager-crew/voyager",
+    "html_url": "https://github.com/voyager-crew/voyager",
+    "category": "浏览器扩展",
+    "summary": "面向各类网页端大模型的提示词管理与增强侧边栏"
+  },
+  "GargantuaX/gemini-watermark-remover": {
+    "name": "gemini-watermark-remover",
+    "full_name": "GargantuaX/gemini-watermark-remover",
+    "html_url": "https://github.com/GargantuaX/gemini-watermark-remover",
+    "category": "浏览器扩展",
+    "summary": "纯前端本地无损移除 Gemini 图像与视频水印"
+  },
+  "google-gemini/gemini-cli": {
+    "name": "gemini-cli",
+    "full_name": "google-gemini/gemini-cli",
+    "html_url": "https://github.com/google-gemini/gemini-cli",
+    "category": "AI Agent 与工具",
+    "summary": "Google 官方终端交互式 Gemini 命令行工具"
+  }
+}
