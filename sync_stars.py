@@ -22,11 +22,12 @@ MODELS_CHAIN = [
     "gemini-3.5-flash-lite"
 ]
 
-# 预设的基础 13 个分类（按优先级排序）
+# 基础分类顺序（JSON 中若有新增分类会自动读取并排在后面）
 DEFAULT_CATEGORIES = [
     "电脑实用神器", "第三方 App", "iOS 插件", "前端 UI 与动效",
     "数据导出与搬家", "实况照片", "XP 模块", "AI Agent 与工具",
-    "福利与自动签到", "壁纸与媒体提取", "网络与代理", "AI Skills", "浏览器扩展"
+    "福利与自动签到", "壁纸与媒体提取", "网络与代理", "AI Skills",
+    "浏览器扩展", "动画图片素材库"
 ]
 
 HEADERS = {"Accept": "application/vnd.github.v3+json"}
@@ -49,7 +50,17 @@ def get_item_categories(item):
         return [c.strip() for c in item["categories"] if c.strip()]
     if "category" in item and item["category"]:
         return [item["category"].strip()]
-    return ["电脑实用神器"]
+    return ["未分类项目"]
+
+
+def get_all_active_categories(cache_data):
+    """从默认列表与当前 JSON 缓存中动态汇总所有已存在的分类"""
+    all_cats = list(DEFAULT_CATEGORIES)
+    for item in cache_data.values():
+        for cat in get_item_categories(item):
+            if cat not in all_cats:
+                all_cats.append(cat)
+    return all_cats
 
 
 def fetch_all_starred():
@@ -88,23 +99,28 @@ def fetch_all_starred():
     return starred
 
 
-def build_prompt(full_name, desc):
-    categories_str = ", ".join(DEFAULT_CATEGORIES)
-    return f"""你是一个通俗软件归类助手。请根据仓库信息完成分类和总结。
+def build_prompt(full_name, desc, active_categories):
+    categories_str = ", ".join(active_categories)
+    return f"""你是一个极其严谨的 GitHub 仓库分类器。请根据仓库信息完成分类和一句话总结。
 
 仓库名称: {full_name}
 官方描述: {desc or '无'}
 
-【分类规则】
-1. 优先从以下预设分类中挑选 1 到 2 个最匹配的分类（可以多选，若跨界可填 2 个）：
+【当前已有文件夹】
 [{categories_str}]
-2. 如果该项目确实与以上所有分类完全不符，允许提炼 1 个全新分类（4 到 8 个汉字）。
+
+【严格分类铁律（零凑合原则）】
+1. 严格字面边界：检查该项目是否 100% 契合【当前已有文件夹】的字面专业领域。
+   - 注意：“电脑实用神器”仅限 Windows/Mac 桌面端运行的实用软件程序，绝不是万能杂物间！
+   - 注意：“第三方 App”仅限手机或跨平台客户端应用！
+2. 严禁强行凑数：如果该项目属于现有文件夹未覆盖的新领域（例如：美食菜谱、生活指南、游戏 Mod、电子书、硬件固件、图标素材、学术教程等），**严禁塞进任何一个已有文件夹**！
+3. 主动新建文件夹：只要与现有文件夹不是 100% 领域吻合，必须根据它的真实属性，主动新建 1 个精准、通俗的文件夹名称（4 到 7 个汉字，不带标点）。
 
 【总结规则】
 用一句话（15到25个汉字以内）讲清楚核心用途。必须用通俗大白话，不带技术黑话，普通人一眼看懂。
 
 请直接以严格 JSON 格式输出：
-{{"categories": ["分类1", "分类2"], "summary": "通俗大白话一句话说明"}}
+{{"categories": ["分类名称"], "summary": "通俗大白话一句话说明"}}
 """
 
 
@@ -118,7 +134,7 @@ def request_gemini_api(model_name, prompt):
     )
 
     gen_config = {
-        "temperature": 0.2,
+        "temperature": 0.1,
         "responseMimeType": "application/json"
     }
 
@@ -140,48 +156,45 @@ def request_gemini_api(model_name, prompt):
     return json.loads(clean_json)
 
 
-def summarize_with_tiered_chain(full_name, desc):
-    prompt = build_prompt(full_name, desc)
+def summarize_with_tiered_chain(full_name, desc, active_categories):
+    prompt = build_prompt(full_name, desc, active_categories)
 
     for idx, model in enumerate(MODELS_CHAIN):
         try:
             data = request_gemini_api(model, prompt)
-            raw_cats = data.get("categories") or [data.get("category", "电脑实用神器")]
+            raw_cats = data.get("categories") or [data.get("category", "")]
             if isinstance(raw_cats, str):
                 raw_cats = [raw_cats]
-            cats = [c.strip() for c in raw_cats if c.strip()] or ["电脑实用神器"]
-            summary = str(data.get("summary", "")).strip() or (desc[:30] if desc else "暂无说明")
-            return cats, summary
+            cats = [c.strip() for c in raw_cats if c.strip()]
+            summary = str(data.get("summary", "")).strip()
+
+            if cats and summary:
+                return cats, summary
         except Exception as e:
             print(f"⚠️ [{model}] 调用失败: {e}")
             if idx < len(MODELS_CHAIN) - 1:
                 time.sleep(1)
 
-    return ["电脑实用神器"], (desc[:30] if desc else "暂无说明")
+    # 如果所有模型全部调用失败，返回 None，绝不乱塞假分类污染缓存
+    return None, None
 
 
 def render_compact_readme(cache_data):
-    """排版：顶部小人微调为 200px 居中、标题匹配 32px 星星、导航宽松靠左"""
+    """排版：顶部小人 200px 居中、标题匹配 32px 星星、导航宽松靠左"""
     total_count = len(cache_data)
+    all_categories = get_all_active_categories(cache_data)
 
-    # 动态汇聚所有分类
-    all_categories = list(DEFAULT_CATEGORIES)
-    for item in cache_data.values():
-        for cat in get_item_categories(item):
-            if cat not in all_categories:
-                all_categories.append(cat)
-
-    # 1. 顶部小人：宽度微调至 200px，保留呼吸感
+    # 1. 顶部小人：宽度 200px 居中
     content = '<p align="center">\n'
-    content += '  <img src="./image/Frieren.gif" width="200" alt="Frieren" />\n'
+    content += '  <img src="./image/Frieren.gif" width="240" alt="Frieren" />\n'
     content += '</p>\n\n'
 
-    # 2. 标题区：使用本地 Star.gif，尺寸设置为 32x32 与大标题字号齐平
+    # 2. 标题区：使用本地 Star.gif，尺寸 32x32 与大标题字号齐平
     star_path = get_star_gif_path()
     content += f'# <img src="{star_path}" width="32" height="32" valign="middle" alt="Star" /> Star Notes\n\n'
     content += f'> 自动同步于 GitHub Actions · 共收录 **{total_count}** 个项目\n\n'
 
-    # 3. 快速导航：纯左对齐，每行 2 项，行距与字距均做适度拉宽
+    # 3. 快速导航：纯左对齐，每行 2 项，宽松行距
     content += "### 快速导航\n\n"
 
     valid_categories = []
@@ -194,7 +207,6 @@ def render_compact_readme(cache_data):
             valid_categories.append(cat)
             toc_links.append(f'[{cat} ({count})](#cat-{idx})')
 
-    # 水平拉开间距，竖向使用两段换行拉开行高，显得松散舒适
     separator = " &emsp;·&emsp; "
     rows = [separator.join(toc_links[i:i + 2]) for i in range(0, len(toc_links), 2)]
     content += "<br><br>\n".join(rows) + "\n\n---\n\n"
@@ -249,7 +261,7 @@ def main():
         if cached_name not in remote_dict:
             del cache[cached_name]
 
-    # 仅对未存在于缓存中的新项目调用 AI
+    # 铁门逻辑：只要已经在 stars_cache.json 里的老项目，绝对跳过不碰！
     new_repos = [repo for full_name, repo in remote_dict.items() if full_name not in cache]
 
     if new_repos:
@@ -258,15 +270,20 @@ def main():
         for repo in new_repos:
             full_name = repo["full_name"]
             desc = repo.get("description", "")
-            cats, summary = summarize_with_tiered_chain(full_name, desc)
+            active_cats = get_all_active_categories(cache)
+            cats, summary = summarize_with_tiered_chain(full_name, desc, active_cats)
 
-            cache[full_name] = {
-                "name": repo.get("name", full_name.split("/")[-1]),
-                "full_name": full_name,
-                "html_url": repo.get("html_url", ""),
-                "categories": cats,
-                "summary": summary
-            }
+            # 只有当 AI 成功返回有效分类时才写入缓存，杜绝网络失败时乱塞默认分类
+            if cats and summary:
+                cache[full_name] = {
+                    "name": repo.get("name", full_name.split("/")[-1]),
+                    "full_name": full_name,
+                    "html_url": repo.get("html_url", ""),
+                    "categories": cats,
+                    "summary": summary
+                }
+            else:
+                print(f"❌ [{full_name}] 所有模型均未能返回有效分类，本次跳过，留待下次重试。")
             time.sleep(3)
 
     # 生成 README 并持久化缓存
