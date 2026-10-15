@@ -4,14 +4,23 @@ import json
 import re
 import time
 
-# ================= 配置区域 =================
+# ================= 核心配置 =================
 GITHUB_USERNAME = "WeiErLiTeo"  # 你的 GitHub 账户名
 CACHE_FILE = "stars_cache.json"
 README_FILE = "README.md"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 GH_TOKEN = os.environ.get("GITHUB_TOKEN")
 
-# 完全对齐你当前手机 Lists 中的 13 个真实分类
+# 严格限定 3.0+ 家族：主力 Flash 优先，Lite 严格排在最后垫底
+MODELS_CHAIN = [
+    "gemini-3.8-flash",       # 1. 旗舰主力 Flash
+    "gemini-3.6-flash",       # 2. 备用高配 Flash
+    "gemini-3.5-flash",       # 3. 经典通用 Flash
+    "gemini-3.1-flash-lite",  # 4. 轻量过渡 Lite
+    "gemini-3.5-flash-lite"   # 5. 终极兜底 Lite（高并发底线）
+]
+
+# 严格对齐你在手机上建好的 13 个列表分类
 CATEGORIES = [
     "电脑实用神器",
     "第三方 App",
@@ -33,14 +42,14 @@ if GH_TOKEN:
     HEADERS["Authorization"] = f"token {GH_TOKEN}"
 
 def fetch_all_starred():
-    """全量分页拉取你当前 Starred 的全部仓库（防止超过30个被截断）"""
+    """全量分页拉取当前所有已 Star 仓库"""
     starred = []
     page = 1
     while True:
         url = f"https://api.github.com/users/{GITHUB_USERNAME}/starred?page={page}&per_page=100"
         resp = requests.get(url, headers=HEADERS, timeout=15)
         if resp.status_code != 200:
-            print(f"获取 Starred 仓库失败: {resp.status_code} - {resp.text}")
+            print(f"拉取 Starred 列表异常: HTTP {resp.status_code}")
             break
         data = resp.json()
         if not data:
@@ -51,52 +60,80 @@ def fetch_all_starred():
         page += 1
     return starred
 
-def summarize_repo(full_name, desc):
-    """请求 Gemini 1.5 Flash 提取大白话并严格从 13 个分类中挑选归属"""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
-    
+def build_prompt(full_name, desc):
     categories_str = ", ".join(CATEGORIES)
-    prompt = f"""你是一个通俗软件归类助手。请根据仓库信息完成分类和总结。
+    return f"""你是一个通俗软件归类助手。请根据仓库信息完成分类和总结。
 
 仓库名称: {full_name}
 官方描述: {desc or '无'}
 
 【分类规则】
-必须且只能从以下分类池中严格选择一个，绝不能自造分类：
+必须且只能从以下分类池中严格挑选一个最匹配的：
 [{categories_str}]
 
 【总结规则】
-用一句话（15到25个字以内）讲清楚核心用途。必须用通俗大白话，不带开发黑话（不要出现Hook、SDK、框架等生僻词），让普通人一眼看懂用途。
+用一句话（15到25个汉字以内）讲清楚核心用途。必须用通俗大白话，绝不能带技术开发黑话（不要出现 Hook、SDK、框架、MCP 等生僻词），让普通人一眼看懂用途。
 
-请直接以严格 JSON 格式输出，不要包含任何多余文字或markdown代码块：
+请直接以严格 JSON 格式输出：
 {{"category": "必须在列表里的分类名", "summary": "通俗大白话一句话说明"}}
 """
+
+def request_gemini_api(model_name, prompt):
+    """底层请求单次模型"""
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={GEMINI_API_KEY}"
+    
+    gen_config = {
+        "temperature": 0.2,
+        "responseMimeType": "application/json"
+    }
+    # 针对带思考机制的 Flash 模型降低推理深度，防止白白消耗多余时间与 token
+    if "3.8-flash" in model_name or "3.6-flash" in model_name:
+        gen_config["thinkingConfig"] = {"thinkingLevel": "LOW"}
+
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.2}
+        "generationConfig": gen_config
     }
     
-    try:
-        resp = requests.post(url, json=payload, timeout=20)
+    resp = requests.post(url, json=payload, timeout=20)
+    if resp.status_code == 200:
         res_data = resp.json()
         raw_text = res_data['candidates'][0]['content']['parts'][0]['text']
         clean_json = re.sub(r'```json|```', '', raw_text).strip()
-        data = json.loads(clean_json)
-        cat = data.get("category", "").strip()
-        if cat not in CATEGORIES:
-            cat = "电脑实用神器"
-        summary = data.get("summary", "").strip() or (desc[:30] if desc else "暂无说明")
-        return cat, summary
-    except Exception as e:
-        print(f"Gemini 处理 {full_name} 失败: {e}")
-        return "电脑实用神器", (desc[:30] if desc else "暂无说明")
+        return json.loads(clean_json)
+    else:
+        raise RuntimeError(f"HTTP {resp.status_code} - {resp.text}")
+
+def summarize_with_tiered_chain(full_name, desc):
+    """五级降级轮询机制：依次尝试，直到成功"""
+    prompt = build_prompt(full_name, desc)
+
+    for idx, model in enumerate(MODELS_CHAIN):
+        try:
+            data = request_gemini_api(model, prompt)
+            cat = data.get("category", "").strip()
+            if cat not in CATEGORIES:
+                cat = "电脑实用神器"
+            summary = data.get("summary", "").strip() or (desc[:30] if desc else "暂无说明")
+            
+            if idx > 0:
+                print(f"✅ 备选模型 [{model}] 成功接管处理！")
+            return cat, summary
+        except Exception as e:
+            print(f"⚠️ [{model}] 请求失败: {e}")
+            if idx < len(MODELS_CHAIN) - 1:
+                next_model = MODELS_CHAIN[idx + 1]
+                print(f"🔄 自动切入下一顺位: [{next_model}]...")
+                time.sleep(1)
+
+    print("❌ 3.0+ 家族所有梯队模型均调用失败，执行本地兜底。")
+    return "电脑实用神器", (desc[:30] if desc else "暂无说明")
 
 def render_readme(cache_data):
-    """根据最新缓存，重新格式化生成严格分段、带链接的 README.md"""
+    """根据最新数据重绘 Markdown 目录"""
     content = "# 🌟 我的 GitHub 收藏大白话备忘录\n\n"
-    content += "> 本目录由 GitHub Actions + Gemini 自动实时同步与整理，支持增量收录与取消收藏自动清理。\n\n"
+    content += "> 由 GitHub Actions + Gemini 3.0+ 全模型梯队自动维护，支持新增分类与取消收藏自动清理。\n\n"
     
-    # 按照设定的分类顺序写入
     for cat in CATEGORIES:
         matched = [item for item in cache_data.values() if item.get("category") == cat]
         content += f"## {cat}\n\n"
@@ -109,7 +146,10 @@ def render_readme(cache_data):
     return content
 
 def main():
-    # 1. 加载本地缓存
+    if not GEMINI_API_KEY:
+        raise ValueError("未检测到环境变量 GEMINI_API_KEY，请在仓库 Settings -> Secrets 中设置。")
+
+    # 1. 读取本地缓存
     cache = {}
     if os.path.exists(CACHE_FILE):
         try:
@@ -118,31 +158,30 @@ def main():
         except Exception:
             cache = {}
 
-    # 2. 拉取线上最新的全部 Star 仓库
-    print("正在拉取最新 Star 列表...")
+    # 2. 拉取线上实时 Star 仓库
+    print("正在拉取最新 Starred 列表...")
     starred_list = fetch_all_starred()
-    remote_full_names = {repo["full_name"]: repo for repo in starred_list}
+    remote_dict = {repo["full_name"]: repo for repo in starred_list}
 
-    # 3. 双向比对：清理已被取消收藏的仓库（Unstarred）
+    # 3. 双向同步：剔除已取消 Star 的项目
     deleted_count = 0
     for cached_name in list(cache.keys()):
-        if cached_name not in remote_full_names:
-            print(f"检测到已取消收藏: {cached_name}，正在从缓存移除...")
+        if cached_name not in remote_dict:
+            print(f"🗑️ 检测到已取消 Star: {cached_name}，正在自动清理...")
             del cache[cached_name]
             deleted_count += 1
 
-    # 4. 增量分析：只对未缓存过的新项目调用 Gemini
-    new_repos = [repo for full_name, repo in remote_full_names.items() if full_name not in cache]
+    # 4. 增量分析：只对新项目调用梯队模型
+    new_repos = [repo for full_name, repo in remote_dict.items() if full_name not in cache]
     
     if new_repos:
-        print(f"发现 {len(new_repos)} 个新增项目需要分析...")
-        # 逆序处理，保证先收藏的排在合适位置
+        print(f"🔍 发现 {len(new_repos)} 个新增项目需要分析...")
         new_repos.reverse()
         for idx, repo in enumerate(new_repos):
             full_name = repo["full_name"]
-            print(f"[{idx+1}/{len(new_repos)}] 正在分析: {full_name}")
+            print(f"[{idx+1}/{len(new_repos)}] 处理中: {full_name}")
             desc = repo.get("description", "")
-            cat, summary = summarize_repo(full_name, desc)
+            cat, summary = summarize_with_tiered_chain(full_name, desc)
             
             cache[full_name] = {
                 "name": repo["name"],
@@ -151,12 +190,12 @@ def main():
                 "category": cat,
                 "summary": summary
             }
-            # 严格控制速率，避免超过 Gemini 免费版的 15 RPM 限制
-            time.sleep(4)
+            # 安全延时，避免触发全局频率限制
+            time.sleep(3)
     else:
-        print("没有发现新的 Star 项目。")
+        print("⚡ 没有新增 Star 项目，本次执行未消耗任何 Token。")
 
-    # 5. 重新生成并覆盖保存 README.md 和 Cache
+    # 5. 生成并覆盖写入
     new_readme = render_readme(cache)
     with open(README_FILE, "w", encoding="utf-8") as f:
         f.write(new_readme)
@@ -164,7 +203,7 @@ def main():
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
-    print(f"同步完成！新增: {len(new_repos)}，移除: {deleted_count}，当前总计: {len(cache)}")
+    print(f"🎉 同步完成！新增: {len(new_repos)}，移除: {deleted_count}，当前总收录: {len(cache)}")
 
 if __name__ == "__main__":
     main()
