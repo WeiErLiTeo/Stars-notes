@@ -1,19 +1,19 @@
 <p align="center">
-  <img src="./image/Frieren.gif" width="240" alt="Frieren" />
+  <img src="./image/Frieren.gif" width="200" alt="Frieren" />
 </p>
 
-# <img src="./image/star.gif" width="28" height="28" valign="middle" alt="Star" /> Star Notes
+# <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **34** 个项目
+> 自动同步于 GitHub Actions · 共收录 **35** 个项目
 
 ### 快速导航
 
-[电脑实用神器 (8)](#cat-0) &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp; [第三方 App (5)](#cat-1)<br>
-[iOS 插件 (4)](#cat-2) &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp; [前端 UI 与动效 (4)](#cat-3)<br>
-[数据导出与搬家 (2)](#cat-4) &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp; [实况照片 (3)](#cat-5)<br>
-[XP 模块 (2)](#cat-6) &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp; [AI Agent 与工具 (4)](#cat-7)<br>
-[福利与自动签到 (1)](#cat-8) &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp; [壁纸与媒体提取 (2)](#cat-9)<br>
-[网络与代理 (3)](#cat-10) &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp; [AI Skills (3)](#cat-11)<br>
+[电脑实用神器 (9)](#cat-0) &emsp;·&emsp; [第三方 App (5)](#cat-1)<br><br>
+[iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (4)](#cat-3)<br><br>
+[数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
+[XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (4)](#cat-7)<br><br>
+[福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
+[网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (3)](#cat-11)<br><br>
 [浏览器扩展 (4)](#cat-12)
 
 ---
@@ -30,6 +30,7 @@
 - [**CookLikeHOC**](https://github.com/Gar-b-age/CookLikeHOC) — 老乡鸡菜品溯源与家常做法复刻指南
 - [**WallpaperEngineWorkshopDownloader**](https://github.com/SteamAutoCracks/WallpaperEngineWorkshopDownloader) — 免 Steam 客户端直接下载小红车创意工坊壁纸
 - [**repkg**](https://github.com/notscuffed/repkg) — Wallpaper Engine 的 PKG 提取与 TEX 图片解包转换器
+- [**Cool-GIFs-For-GitHub**](https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub) — 提供丰富精美的GIF动图与个人头像素材库
 
 <span id="cat-1"></span>
 
