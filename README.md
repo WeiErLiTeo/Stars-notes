@@ -8,13 +8,14 @@
 
 ### 快速导航
 
-[电脑实用神器 (8)](#cat-0) &emsp;·&emsp; [第三方 App (5)](#cat-1)<br><br>
+[电脑实用神器 (7)](#cat-0) &emsp;·&emsp; [第三方 App (5)](#cat-1)<br><br>
 [iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (4)](#cat-3)<br><br>
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (4)](#cat-7)<br><br>
 [福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (3)](#cat-11)<br><br>
-[浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (1)](#cat-13)
+[浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (1)](#cat-13)<br><br>
+[美食与菜谱 (1)](#cat-14)
 
 ---
 
@@ -27,7 +28,6 @@
 - [**WeFlow**](https://github.com/hicccc77/WeFlow) — 本地微信聊天记录导出分析与年度报告生成工具
 - [**Translumo**](https://github.com/ramjke/Translumo) — 屏幕实时悬浮翻译器，支持游戏与生肉视频识别
 - [**TrendRadar**](https://github.com/sansan0/TrendRadar) — 多平台热搜与舆情监控推送工具
-- [**CookLikeHOC**](https://github.com/Gar-b-age/CookLikeHOC) — 暂无说明
 - [**WallpaperEngineWorkshopDownloader**](https://github.com/SteamAutoCracks/WallpaperEngineWorkshopDownloader) — 免 Steam 客户端直接下载小红车创意工坊壁纸
 - [**repkg**](https://github.com/notscuffed/repkg) — Wallpaper Engine 的 PKG 提取与 TEX 图片解包转换器
 
@@ -133,6 +133,12 @@
 ## 动画图片素材库
 
 - [**Cool-GIFs-For-GitHub**](https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub) — 提供丰富精美的GIF动图与个人头像素材库
+
+<span id="cat-14"></span>
+
+## 美食与菜谱
+
+- [**CookLikeHOC**](https://github.com/Gar-b-age/CookLikeHOC) — 老乡鸡菜品溯源与家常做法复刻指南
 
 ---
 
