@@ -1,14 +1,16 @@
 <p align="center">
-  <img src="https://images.weserv.nl/?url=raw.githubusercontent.com/mario-chavez/frieren/main/assets/frieren-walking.gif" width="75" alt="Frieren" />
+  <img src="./image/Frieren.gif" width="150" alt="Frieren" />
 </p>
 
 # 收藏仓库清单
 
 > 自动同步于 GitHub Actions · 共收录 **34** 个项目
 
-### 快速导航
+<h3 align="center">快速导航</h3>
 
-[电脑实用神器 (3)](#cat-0) · [第三方 App (3)](#cat-1) · [iOS 插件 (4)](#cat-2) · [前端 UI 与动效 (4)](#cat-3) · [数据导出与搬家 (2)](#cat-4) · [实况照片 (3)](#cat-5) · [XP 模块 (2)](#cat-6) · [AI Agent 与工具 (2)](#cat-7) · [福利与自动签到 (1)](#cat-8) · [壁纸与媒体提取 (2)](#cat-9) · [网络与代理 (3)](#cat-10) · [AI Skills (1)](#cat-11) · [浏览器扩展 (4)](#cat-12)
+<p align="center">
+<a href="#cat-0">电脑实用神器 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-1">第三方 App (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-2">iOS 插件 (4)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-3">前端 UI 与动效 (4)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-4">数据导出与搬家 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-5">实况照片 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-6">XP 模块 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-7">AI Agent 与工具 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-8">福利与自动签到 (1)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-9">壁纸与媒体提取 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-10">网络与代理 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-11">AI Skills (1)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-12">浏览器扩展 (4)</a>
+</p>
 
 ---
 
