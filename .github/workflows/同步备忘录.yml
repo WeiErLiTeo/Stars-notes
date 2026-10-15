@@ -2,19 +2,19 @@ name: 自动同步 Star 备忘录
 
 on:
   schedule:
-    # 每天早上 8 点和晚上 8 点定时自动执行（UTC 时间 0:00 和 12:00）
-    - cron: '0 0,12 * * *'
-  # 允许在网页仓库 Actions 界面随时点击“Run workflow”手动立即触发
+    # 每 30 分钟自动巡检一次（UTC 时间每半小时）
+    - cron: '*/30 * * * *'
+  # 随时在网页端保留手动触发按钮
   workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 授予自动写入 README 权限
+      contents: write  # 必须具备写权限，否则无法自动提交更新
 
     steps:
-      - name: 检出仓库
+      - name: 检出仓库代码
         uses: actions/checkout@v4
 
       - name: 安装 Python 环境
@@ -22,18 +22,18 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: 安装 requests
+      - name: 安装基础依赖
         run: pip install requests
 
-      - name: 运行同步脚本
+      - name: 运行同步与排版脚本
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python sync_stars.py
 
-      - name: 自动提交更新
+      - name: 自动提交并推送到仓库
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md stars_cache.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 自动同步 Star 仓库清单与大白话注释" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 自动同步 Star 清单与优化排版" && git push)
