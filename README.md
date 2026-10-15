@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./image/Frieren.gif" width="150" alt="Frieren" />
+ <img src="./image/Frieren.gif" width="320" alt="Frieren" />
 </p>
 
 # 收藏仓库清单
@@ -9,7 +9,13 @@
 <h3 align="center">快速导航</h3>
 
 <p align="center">
-<a href="#cat-0">电脑实用神器 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-1">第三方 App (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-2">iOS 插件 (4)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-3">前端 UI 与动效 (4)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-4">数据导出与搬家 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-5">实况照片 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-6">XP 模块 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-7">AI Agent 与工具 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-8">福利与自动签到 (1)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-9">壁纸与媒体提取 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-10">网络与代理 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-11">AI Skills (1)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-12">浏览器扩展 (4)</a>
+<a href="#cat-0">电脑实用神器 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-1">第三方 App (3)</a><br>
+<a href="#cat-2">iOS 插件 (4)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-3">前端 UI 与动效 (4)</a><br>
+<a href="#cat-4">数据导出与搬家 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-5">实况照片 (3)</a><br>
+<a href="#cat-6">XP 模块 (2)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-7">AI Agent 与工具 (2)</a><br>
+<a href="#cat-8">福利与自动签到 (1)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-9">壁纸与媒体提取 (2)</a><br>
+<a href="#cat-10">网络与代理 (3)</a> &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#cat-11">AI Skills (1)</a><br>
+<a href="#cat-12">浏览器扩展 (4)</a>
 </p>
 
 ---
@@ -116,5 +122,5 @@
 ---
 
 <p align="center">
-  <img src="https://count.getloli.com/get/@WeiErLiTeo-stars-notes?theme=rule34" alt="Moe Counter" />
+ <img src="https://count.getloli.com/get/@WeiErLiTeo-stars-notes?theme=rule34" alt="Moe Counter" />
 </p>
