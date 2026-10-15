@@ -13,11 +13,11 @@ GH_TOKEN = os.environ.get("GITHUB_TOKEN")
 
 # 严格采用 3.0+ 家族：主力 Flash 优先，Lite 最后垫底
 MODELS_CHAIN = [
-    "gemini-3.8-flash",       # 1. 旗舰主力 Flash（归类最准）
-    "gemini-3.6-flash",       # 2. 高配备用 Flash
+    "gemini-3.8-flash",       # 1. 旗舰主力 Flash（归类与理解最强）
+    "gemini-3.6-flash",       # 2. 备用高配 Flash
     "gemini-3.5-flash",       # 3. 经典通用 Flash
     "gemini-3.1-flash-lite",  # 4. 轻量过渡 Lite
-    "gemini-3.5-flash-lite"   # 5. 终极兜底 Lite（高并发保底）
+    "gemini-3.5-flash-lite"   # 5. 终极兜底 Lite（高吞吐保底）
 ]
 
 # 预设的 13 个基础分类（按优先级排序）
@@ -60,7 +60,7 @@ def build_prompt(full_name, desc):
 【分类规则】
 1. 优先从以下预设分类中挑选一个最匹配的：
 [{categories_str}]
-2. 如果该项目确实与以上所有分类完全不符（例如属于“固件刷机”、“音视频后期”、“嵌入式硬件”等全新领域），允许自主提炼一个极其精炼的全新分类名称（必须为 4 到 8 个汉字，不要带标点）。
+2. 如果该项目确实与以上所有分类完全不符（例如属于“固件刷机”、“音视频后期”、“嵌入式硬件”等全新领域），允许自主提炼一个极其精炼的全新分类名称（必须为 4 到 8 个汉字，不要带任何标点）。
 
 【总结规则】
 用一句话（15到25个汉字以内）讲清楚核心用途。必须用通俗大白话，不带技术开发黑话，让普通人一眼看懂用途。
@@ -76,7 +76,7 @@ def request_gemini_api(model_name, prompt):
         "temperature": 0.2,
         "responseMimeType": "application/json"
     }
-    # 限制 3.8 / 3.6 的推理深度，避免把 token 耗费在长链思考上
+    # 限制推理深度，避免消耗多余时间与 token
     if "3.8-flash" in model_name or "3.6-flash" in model_name:
         gen_config["thinkingConfig"] = {"thinkingLevel": "LOW"}
 
@@ -108,10 +108,10 @@ def summarize_with_tiered_chain(full_name, desc):
     return "电脑实用神器", (desc[:30] if desc else "暂无说明")
 
 def render_compact_readme(cache_data):
-    """按照 Awesome 规范生成紧凑、高对比度、带移动端锚点导航的 Markdown"""
+    """按照规范生成紧凑、带导航、底部带芙莉莲与计数器的 Markdown"""
     total_count = len(cache_data)
     
-    # 1. 动态收集所有分类（基础 13 个在前，新增扩展在后）
+    # 动态聚合分类：基础分类排前面，新创建的分类紧跟其后
     all_categories = list(DEFAULT_CATEGORIES)
     for item in cache_data.values():
         cat = item.get("category")
@@ -121,19 +121,18 @@ def render_compact_readme(cache_data):
     content = "# 收藏仓库清单\n\n"
     content += f"> 自动同步于 GitHub Actions · 共收录 **{total_count}** 个项目\n\n"
 
-    # 2. 顶部紧凑快速索引栏（TOC）
+    # 1. 顶部紧凑导航（TOC）
     content += "### 快速导航\n\n"
     toc_links = []
     for cat in all_categories:
         count = sum(1 for item in cache_data.values() if item.get("category") == cat)
         if count > 0:
-            # 采用标准 Slug 生成锚点链接
             slug = cat.lower().replace(" ", "-").replace("/", "")
             toc_links.append(f"[{cat} ({count})](#{slug})")
     
     content += " · ".join(toc_links) + "\n\n---\n\n"
 
-    # 3. 分类详情正文（紧凑列表排版）
+    # 2. 正文分类列表
     for cat in all_categories:
         matched = [item for item in cache_data.values() if item.get("category") == cat]
         if not matched:
@@ -141,17 +140,23 @@ def render_compact_readme(cache_data):
             
         content += f"## {cat}\n\n"
         for item in matched:
-            # 加粗仓库名增强对比，破折号后跟大白话，不添加多余空行，保证手机单屏信息密度
             content += f"- [**{item['name']}**]({item['html_url']}) — {item['summary']}\n"
         content += "\n"
+
+    # 3. 底部装饰：芙莉莲小人 + 萌萌计数器（居中排版）
+    content += "---\n\n"
+    content += "<p align=\"center\">\n"
+    content += "  <img src=\"https://raw.githubusercontent.com/mario-chavez/frieren/main/assets/frieren-walking.gif\" width=\"65\" alt=\"Frieren Walking\" /><br/>\n"
+    content += "  <img src=\"https://count.getloli.com/get/@WeiErLiTeo-stars-notes?theme=rule34\" alt=\"Moe Counter\" />\n"
+    content += "</p>\n"
 
     return content
 
 def main():
     if not GEMINI_API_KEY:
-        raise ValueError("缺少 GEMINI_API_KEY 环境变量，请在 Secrets 中配置。")
+        raise ValueError("缺少 GEMINI_API_KEY 环境变量，请在 Settings -> Secrets 中配置。")
 
-    # 1. 读取本地缓存
+    # 1. 加载本地缓存
     cache = {}
     if os.path.exists(CACHE_FILE):
         try:
@@ -165,7 +170,7 @@ def main():
     starred_list = fetch_all_starred()
     remote_dict = {repo["full_name"]: repo for repo in starred_list}
 
-    # 3. 双向同步：剔除取消 Star 的项目
+    # 3. 双向同步：剔除已取消 Star 的项目
     deleted_count = 0
     for cached_name in list(cache.keys()):
         if cached_name not in remote_dict:
