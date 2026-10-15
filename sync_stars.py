@@ -1,4 +1,3 @@
-
 import os
 import requests
 import json
@@ -9,6 +8,7 @@ import time
 GITHUB_USERNAME = "WeiErLiTeo"
 CACHE_FILE = "stars_cache.json"
 README_FILE = "README.md"
+
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 GH_TOKEN = os.environ.get("GITHUB_TOKEN")
 
@@ -29,7 +29,6 @@ DEFAULT_CATEGORIES = [
 ]
 
 HEADERS = {"Accept": "application/vnd.github.v3+json"}
-
 if GH_TOKEN:
     HEADERS["Authorization"] = f"token {GH_TOKEN}"
 
@@ -189,10 +188,11 @@ def render_compact_readme(cache_data):
             all_categories.append(cat)
 
     # 1. 顶部：使用仓库内的 Frieren.gif，不再引用外部图片
+    #    图片宽度由 150 放大到 320（单位：像素）
     content = '<p align="center">\n'
     content += (
-        '  <img src="./image/Frieren.gif" '
-        'width="150" alt="Frieren" />\n'
+        ' <img src="./image/Frieren.gif" '
+        'width="320" alt="Frieren" />\n'
     )
     content += '</p>\n\n'
 
@@ -227,10 +227,10 @@ def render_compact_readme(cache_data):
             toc_links.append(link)
 
     # 使用带空隙的圆点分隔链接。
-    # 外层 p 居中，浏览器在屏幕宽度不足时自动换行。
+    # 每行固定放 2 个，避免分类名在行尾被从中间劈开。
     separator = " &nbsp;&nbsp;·&nbsp;&nbsp; "
-
-    content += separator.join(toc_links)
+    rows = [separator.join(toc_links[i:i + 2]) for i in range(0, len(toc_links), 2)]
+    content += "<br>\n".join(rows)
     content += '\n</p>\n\n---\n\n'
 
     # 3. 正文分类详情：保持原有数字锚点和项目列表
@@ -256,7 +256,7 @@ def render_compact_readme(cache_data):
     content += "---\n\n"
     content += '<p align="center">\n'
     content += (
-        '  <img src="https://count.getloli.com/'
+        ' <img src="https://count.getloli.com/'
         'get/@WeiErLiTeo-stars-notes?theme=rule34" '
         'alt="Moe Counter" />\n'
     )
@@ -272,7 +272,6 @@ def main():
 
     # 读取已有缓存
     cache = {}
-
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, "r", encoding="utf-8") as f:
@@ -288,6 +287,7 @@ def main():
 
     # 拉取 GitHub Starred 仓库
     starred_list = fetch_all_starred()
+
     remote_dict = {
         repo["full_name"]: repo
         for repo in starred_list
