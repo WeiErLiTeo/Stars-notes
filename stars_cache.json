@@ -324,5 +324,14 @@
       "动画图片素材库"
     ],
     "summary": "提供丰富精美的GIF动图与个人头像素材库"
+  },
+  "shihabal3amri/DiPlay": {
+    "name": "DiPlay",
+    "full_name": "shihabal3amri/DiPlay",
+    "html_url": "https://github.com/shihabal3amri/DiPlay",
+    "categories": [
+      "车载应用开发"
+    ],
+    "summary": "让兼容的安卓车机能够独立运行有线和无线苹果车机互联功能"
   }
 }
