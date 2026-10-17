@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **37** 个项目
+> 自动同步于 GitHub Actions · 共收录 **39** 个项目
 
 ### 快速导航
 
@@ -15,7 +15,8 @@
 [福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (3)](#cat-11)<br><br>
 [浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (1)](#cat-13)<br><br>
-[美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)
+[美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
+[移动开发工具 (2)](#cat-16)
 
 ---
 
@@ -146,6 +147,13 @@
 ## 车载应用开发
 
 - [**DiPlay**](https://github.com/shihabal3amri/DiPlay) — 让兼容的安卓车机能够独立运行有线和无线苹果车机互联功能
+
+<span id="cat-16"></span>
+
+## 移动开发工具
+
+- [**termux-flutter**](https://github.com/Leonisaurov/termux-flutter) — 让你直接在安卓手机上开发和打包应用
+- [**frontendcli**](https://github.com/adamikoo/frontendcli) — 一款让你在安卓手机上写代码的移动端开发工具
 
 ---
 

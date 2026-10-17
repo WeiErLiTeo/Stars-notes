@@ -342,5 +342,23 @@
       "AI Agent 与工具"
     ],
     "summary": "让你在安卓手机上直接运行AI帮写代码"
+  },
+  "Leonisaurov/termux-flutter": {
+    "name": "termux-flutter",
+    "full_name": "Leonisaurov/termux-flutter",
+    "html_url": "https://github.com/Leonisaurov/termux-flutter",
+    "categories": [
+      "移动开发工具"
+    ],
+    "summary": "让你直接在安卓手机上开发和打包应用"
+  },
+  "adamikoo/frontendcli": {
+    "name": "frontendcli",
+    "full_name": "adamikoo/frontendcli",
+    "html_url": "https://github.com/adamikoo/frontendcli",
+    "categories": [
+      "移动开发工具"
+    ],
+    "summary": "一款让你在安卓手机上写代码的移动端开发工具"
   }
 }
