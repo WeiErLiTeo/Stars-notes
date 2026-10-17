@@ -333,5 +333,14 @@
       "车载应用开发"
     ],
     "summary": "让兼容的安卓车机能够独立运行有线和无线苹果车机互联功能"
+  },
+  "yuga-hashimoto/and-code": {
+    "name": "and-code",
+    "full_name": "yuga-hashimoto/and-code",
+    "html_url": "https://github.com/yuga-hashimoto/and-code",
+    "categories": [
+      "AI Agent 与工具"
+    ],
+    "summary": "让你在安卓手机上直接运行AI帮写代码"
   }
 }
