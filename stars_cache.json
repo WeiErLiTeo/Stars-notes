@@ -360,5 +360,14 @@
       "移动开发工具"
     ],
     "summary": "一款让你在安卓手机上写代码的移动端开发工具"
+  },
+  "zzyoxml/md3Music": {
+    "name": "md3Music",
+    "full_name": "zzyoxml/md3Music",
+    "html_url": "https://github.com/zzyoxml/md3Music",
+    "categories": [
+      "第三方 App"
+    ],
+    "summary": "基于酷狗概念版的第三方极简音乐播放器"
   }
 }

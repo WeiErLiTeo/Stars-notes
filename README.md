@@ -4,11 +4,11 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **39** 个项目
+> 自动同步于 GitHub Actions · 共收录 **40** 个项目
 
 ### 快速导航
 
-[电脑实用神器 (7)](#cat-0) &emsp;·&emsp; [第三方 App (5)](#cat-1)<br><br>
+[电脑实用神器 (7)](#cat-0) &emsp;·&emsp; [第三方 App (6)](#cat-1)<br><br>
 [iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (4)](#cat-3)<br><br>
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (5)](#cat-7)<br><br>
@@ -41,6 +41,7 @@
 - [**Overmorrow**](https://github.com/bmaroti9/Overmorrow) — 现代质感 Material Design 设计风格的开源天气应用
 - [**haka_comic**](https://github.com/raoxwup/haka_comic) — 哔咔漫画第三方跨平台客户端，界面清爽无广告
 - [**PiliPlus**](https://github.com/bggRGjQaUbCoE/PiliPlus) — 第三方跨平台 B 站客户端，轻巧纯净
+- [**md3Music**](https://github.com/zzyoxml/md3Music) — 基于酷狗概念版的第三方极简音乐播放器
 
 <span id="cat-2"></span>
 
