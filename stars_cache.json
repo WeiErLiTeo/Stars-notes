@@ -369,5 +369,14 @@
       "第三方 App"
     ],
     "summary": "基于酷狗概念版的第三方极简音乐播放器"
+  },
+  "Mangi-11/Eta": {
+    "name": "Eta",
+    "full_name": "Mangi-11/Eta",
+    "html_url": "https://github.com/Mangi-11/Eta",
+    "categories": [
+      "AI Agent 与工具"
+    ],
+    "summary": "让AI能直接控制手机系统和屏幕的智能助手"
   }
 }
