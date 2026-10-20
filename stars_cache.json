@@ -378,5 +378,14 @@
       "AI Agent 与工具"
     ],
     "summary": "让AI能直接控制手机系统和屏幕的智能助手"
+  },
+  "tek-95/ViceBounce": {
+    "name": "ViceBounce",
+    "full_name": "tek-95/ViceBounce",
+    "html_url": "https://github.com/tek-95/ViceBounce",
+    "categories": [
+      "游戏辅助与增强"
+    ],
+    "summary": "让侠盗猎车手罪恶都市跟随你的音乐节奏蹦迪"
   }
 }
