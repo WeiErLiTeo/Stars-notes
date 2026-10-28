@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **42** 个项目
+> 自动同步于 GitHub Actions · 共收录 **43** 个项目
 
 ### 快速导航
 
@@ -16,7 +16,8 @@
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (3)](#cat-11)<br><br>
 [浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (1)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
-[移动开发工具 (2)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)
+[移动开发工具 (2)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
+[跨端互联工具 (1)](#cat-18)
 
 ---
 
@@ -162,6 +163,12 @@
 ## 游戏辅助与增强
 
 - [**ViceBounce**](https://github.com/tek-95/ViceBounce) — 让侠盗猎车手罪恶都市跟随你的音乐节奏蹦迪
+
+<span id="cat-18"></span>
+
+## 跨端互联工具
+
+- [**nectarlink**](https://github.com/thtbee/nectarlink) — 无需账号即可让手机与电脑实现加密互联
 
 ---
 

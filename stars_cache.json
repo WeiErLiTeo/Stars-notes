@@ -387,5 +387,14 @@
       "游戏辅助与增强"
     ],
     "summary": "让侠盗猎车手罪恶都市跟随你的音乐节奏蹦迪"
+  },
+  "thtbee/nectarlink": {
+    "name": "nectarlink",
+    "full_name": "thtbee/nectarlink",
+    "html_url": "https://github.com/thtbee/nectarlink",
+    "categories": [
+      "跨端互联工具"
+    ],
+    "summary": "无需账号即可让手机与电脑实现加密互联"
   }
 }
