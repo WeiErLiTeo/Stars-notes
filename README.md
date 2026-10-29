@@ -4,14 +4,14 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **45** 个项目
+> 自动同步于 GitHub Actions · 共收录 **47** 个项目
 
 ### 快速导航
 
 [电脑实用神器 (7)](#cat-0) &emsp;·&emsp; [第三方 App (6)](#cat-1)<br><br>
-[iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (4)](#cat-3)<br><br>
+[iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (5)](#cat-3)<br><br>
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
-[XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (6)](#cat-7)<br><br>
+[XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (7)](#cat-7)<br><br>
 [福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (3)](#cat-11)<br><br>
 [浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (1)](#cat-13)<br><br>
@@ -61,6 +61,7 @@
 - [**demos**](https://github.com/enzomanuelmangano/demos) — 基于 React Native、Reanimated 与 Skia 的交互动效集
 - [**live2d-widget**](https://github.com/stevenjoezhang/live2d-widget) — 网页端萌萌哒 Live2D 看板娘挂件
 - [**m3e-canvas**](https://github.com/lnkiai/m3e-canvas) — 在浏览器草绘UI界面并生成AI编程提示词
+- [**casa-serra**](https://github.com/Sam1983Aing/casa-serra) — 随着页面滚动将平面的户型图逐渐展示为立体的房屋。
 
 <span id="cat-4"></span>
 
@@ -94,6 +95,7 @@
 - [**m3e-canvas**](https://github.com/lnkiai/m3e-canvas) — 在浏览器草绘UI界面并生成AI编程提示词
 - [**and-code**](https://github.com/yuga-hashimoto/and-code) — 让你在安卓手机上直接运行AI帮写代码
 - [**Eta**](https://github.com/Mangi-11/Eta) — 让AI能直接控制手机系统和屏幕的智能助手
+- [**carla**](https://github.com/k3nnethfrancis/carla) — 用于开发 AI 人设角色的终端对话与训练工具
 
 <span id="cat-8"></span>
 

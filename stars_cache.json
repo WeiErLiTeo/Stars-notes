@@ -414,5 +414,23 @@
       "在线游戏与模拟器"
     ],
     "summary": "能在手机和电脑上在线玩的红白机游戏模拟器"
+  },
+  "k3nnethfrancis/carla": {
+    "name": "carla",
+    "full_name": "k3nnethfrancis/carla",
+    "html_url": "https://github.com/k3nnethfrancis/carla",
+    "categories": [
+      "AI Agent 与工具"
+    ],
+    "summary": "用于开发 AI 人设角色的终端对话与训练工具"
+  },
+  "Sam1983Aing/casa-serra": {
+    "name": "casa-serra",
+    "full_name": "Sam1983Aing/casa-serra",
+    "html_url": "https://github.com/Sam1983Aing/casa-serra",
+    "categories": [
+      "前端 UI 与动效"
+    ],
+    "summary": "随着页面滚动将平面的户型图逐渐展示为立体的房屋。"
   }
 }
