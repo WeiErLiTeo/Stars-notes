@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **47** 个项目
+> 自动同步于 GitHub Actions · 共收录 **48** 个项目
 
 ### 快速导航
 
@@ -14,7 +14,7 @@
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (7)](#cat-7)<br><br>
 [福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (3)](#cat-11)<br><br>
-[浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (1)](#cat-13)<br><br>
+[浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
 [移动开发工具 (3)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
 [跨端互联工具 (1)](#cat-18) &emsp;·&emsp; [在线游戏与模拟器 (1)](#cat-19)
@@ -140,6 +140,7 @@
 ## 动画图片素材库
 
 - [**Cool-GIFs-For-GitHub**](https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub) — 提供丰富精美的GIF动图与个人头像素材库
+- [**doodle-icons**](https://github.com/oreo-design/doodle-icons) — 包含近两百个会自己绘制并抖动的可可爱手绘动态图标
 
 <span id="cat-14"></span>
 

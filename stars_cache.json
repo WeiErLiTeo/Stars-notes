@@ -432,5 +432,14 @@
       "前端 UI 与动效"
     ],
     "summary": "随着页面滚动将平面的户型图逐渐展示为立体的房屋。"
+  },
+  "oreo-design/doodle-icons": {
+    "name": "doodle-icons",
+    "full_name": "oreo-design/doodle-icons",
+    "html_url": "https://github.com/oreo-design/doodle-icons",
+    "categories": [
+      "动画图片素材库"
+    ],
+    "summary": "包含近两百个会自己绘制并抖动的可可爱手绘动态图标"
   }
 }
