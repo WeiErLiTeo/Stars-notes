@@ -441,5 +441,14 @@
       "动画图片素材库"
     ],
     "summary": "包含近两百个会自己绘制并抖动的可可爱手绘动态图标"
+  },
+  "heydamir/unslop": {
+    "name": "unslop",
+    "full_name": "heydamir/unslop",
+    "html_url": "https://github.com/heydamir/unslop",
+    "categories": [
+      "AI Skills"
+    ],
+    "summary": "优化AI生成的网页界面让它看起来更美观"
   }
 }

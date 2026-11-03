@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **48** 个项目
+> 自动同步于 GitHub Actions · 共收录 **49** 个项目
 
 ### 快速导航
 
@@ -13,7 +13,7 @@
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (7)](#cat-7)<br><br>
 [福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
-[网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (3)](#cat-11)<br><br>
+[网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (4)](#cat-11)<br><br>
 [浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
 [移动开发工具 (3)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
@@ -125,6 +125,7 @@
 - [**TrendRadar**](https://github.com/sansan0/TrendRadar) — 多平台热搜与舆情监控推送工具
 - [**universal-modder**](https://github.com/rehan-remade/universal-modder) — 让 Claude 自动分析游戏逆向并生成 Mod 的技能工具箱
 - [**android-agent**](https://github.com/ghost-in-the-droid/android-agent) — 通过 ADB 与 WebDriver 让 AI Agent 直接操控真实手机
+- [**unslop**](https://github.com/heydamir/unslop) — 优化AI生成的网页界面让它看起来更美观
 
 <span id="cat-12"></span>
 
