@@ -4,11 +4,11 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **50** 个项目
+> 自动同步于 GitHub Actions · 共收录 **53** 个项目
 
 ### 快速导航
 
-[电脑实用神器 (7)](#cat-0) &emsp;·&emsp; [第三方 App (6)](#cat-1)<br><br>
+[电脑实用神器 (7)](#cat-0) &emsp;·&emsp; [第三方 App (8)](#cat-1)<br><br>
 [iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (5)](#cat-3)<br><br>
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (8)](#cat-7)<br><br>
@@ -16,7 +16,7 @@
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (4)](#cat-11)<br><br>
 [浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
-[移动开发工具 (3)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
+[移动开发工具 (4)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
 [跨端互联工具 (1)](#cat-18) &emsp;·&emsp; [在线游戏与模拟器 (1)](#cat-19)
 
 ---
@@ -43,6 +43,8 @@
 - [**haka_comic**](https://github.com/raoxwup/haka_comic) — 哔咔漫画第三方跨平台客户端，界面清爽无广告
 - [**PiliPlus**](https://github.com/bggRGjQaUbCoE/PiliPlus) — 第三方跨平台 B 站客户端，轻巧纯净
 - [**md3Music**](https://github.com/zzyoxml/md3Music) — 基于酷狗概念版的第三方极简音乐播放器
+- [**mobile-codex**](https://github.com/nokryong/mobile-codex) — 无需电脑即可在手机上直接使用的智能助手客户端
+- [**Leostryx**](https://github.com/Leostrange/Leostryx) — 一款自带多种主题和工具的手机端AI聊天软件
 
 <span id="cat-2"></span>
 
@@ -163,6 +165,7 @@
 - [**termux-flutter**](https://github.com/Leonisaurov/termux-flutter) — 让你直接在安卓手机上开发和打包应用
 - [**frontendcli**](https://github.com/adamikoo/frontendcli) — 一款让你在安卓手机上写代码的移动端开发工具
 - [**flutter-termux**](https://github.com/termuxvoid/flutter-termux) — 让你能在手机终端里直接进行开发与构建
+- [**antigravity-android**](https://github.com/werdio325-png/antigravity-android) — 在安卓手机上运行悬浮窗与自动化软件的工具
 
 <span id="cat-17"></span>
 

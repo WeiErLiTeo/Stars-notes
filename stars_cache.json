@@ -459,5 +459,32 @@
       "AI Agent 与工具"
     ],
     "summary": "在电脑桌面实时显示各类 AI 额度与订阅使用量"
+  },
+  "werdio325-png/antigravity-android": {
+    "name": "antigravity-android",
+    "full_name": "werdio325-png/antigravity-android",
+    "html_url": "https://github.com/werdio325-png/antigravity-android",
+    "categories": [
+      "移动开发工具"
+    ],
+    "summary": "在安卓手机上运行悬浮窗与自动化软件的工具"
+  },
+  "nokryong/mobile-codex": {
+    "name": "mobile-codex",
+    "full_name": "nokryong/mobile-codex",
+    "html_url": "https://github.com/nokryong/mobile-codex",
+    "categories": [
+      "第三方 App"
+    ],
+    "summary": "无需电脑即可在手机上直接使用的智能助手客户端"
+  },
+  "Leostrange/Leostryx": {
+    "name": "Leostryx",
+    "full_name": "Leostrange/Leostryx",
+    "html_url": "https://github.com/Leostrange/Leostryx",
+    "categories": [
+      "第三方 App"
+    ],
+    "summary": "一款自带多种主题和工具的手机端AI聊天软件"
   }
 }
