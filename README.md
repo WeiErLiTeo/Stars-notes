@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **53** 个项目
+> 自动同步于 GitHub Actions · 共收录 **54** 个项目
 
 ### 快速导航
 
@@ -14,7 +14,7 @@
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (8)](#cat-7)<br><br>
 [福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (4)](#cat-11)<br><br>
-[浏览器扩展 (4)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
+[浏览器扩展 (5)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
 [移动开发工具 (4)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
 [跨端互联工具 (1)](#cat-18) &emsp;·&emsp; [在线游戏与模拟器 (1)](#cat-19)
@@ -138,6 +138,7 @@
 - [**youtube-ambilight**](https://github.com/WesselKroos/youtube-ambilight) — YouTube 视频播放器外围实时画面同步泛光扩展
 - [**voyager**](https://github.com/voyager-crew/voyager) — 支持各类网页端大模型的提示词管理与增强侧边栏
 - [**gemini-watermark-remover**](https://github.com/GargantuaX/gemini-watermark-remover) — 纯前端本地无损移除 Gemini 图像与视频隐形水印
+- [**Apple-Music-Chinese-Lyrics-Script**](https://github.com/HappyRespawnanchor/Apple-Music-Chinese-Lyrics-Script) — 让网页版苹果音乐强制显示中文歌词翻译
 
 <span id="cat-13"></span>
 

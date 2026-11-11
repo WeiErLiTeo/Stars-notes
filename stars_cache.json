@@ -486,5 +486,14 @@
       "第三方 App"
     ],
     "summary": "一款自带多种主题和工具的手机端AI聊天软件"
+  },
+  "HappyRespawnanchor/Apple-Music-Chinese-Lyrics-Script": {
+    "name": "Apple-Music-Chinese-Lyrics-Script",
+    "full_name": "HappyRespawnanchor/Apple-Music-Chinese-Lyrics-Script",
+    "html_url": "https://github.com/HappyRespawnanchor/Apple-Music-Chinese-Lyrics-Script",
+    "categories": [
+      "浏览器扩展"
+    ],
+    "summary": "让网页版苹果音乐强制显示中文歌词翻译"
   }
 }
