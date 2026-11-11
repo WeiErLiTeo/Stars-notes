@@ -450,5 +450,14 @@
       "AI Skills"
     ],
     "summary": "优化AI生成的网页界面让它看起来更美观"
+  },
+  "hopechen067/ai-usage-dashboard": {
+    "name": "ai-usage-dashboard",
+    "full_name": "hopechen067/ai-usage-dashboard",
+    "html_url": "https://github.com/hopechen067/ai-usage-dashboard",
+    "categories": [
+      "AI Agent 与工具"
+    ],
+    "summary": "在电脑桌面实时显示各类 AI 额度与订阅使用量"
   }
 }
