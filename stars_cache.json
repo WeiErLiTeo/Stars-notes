@@ -495,5 +495,14 @@
       "浏览器扩展"
     ],
     "summary": "让网页版苹果音乐强制显示中文歌词翻译"
+  },
+  "Leekin2/XGoogle": {
+    "name": "XGoogle",
+    "full_name": "Leekin2/XGoogle",
+    "html_url": "https://github.com/Leekin2/XGoogle",
+    "categories": [
+      "移动开发工具"
+    ],
+    "summary": "该项目已迁移至新仓库，不再在此更新。"
   }
 }

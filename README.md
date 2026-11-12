@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **54** 个项目
+> 自动同步于 GitHub Actions · 共收录 **55** 个项目
 
 ### 快速导航
 
@@ -16,7 +16,7 @@
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (4)](#cat-11)<br><br>
 [浏览器扩展 (5)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
-[移动开发工具 (4)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
+[移动开发工具 (5)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
 [跨端互联工具 (1)](#cat-18) &emsp;·&emsp; [在线游戏与模拟器 (1)](#cat-19)
 
 ---
@@ -167,6 +167,7 @@
 - [**frontendcli**](https://github.com/adamikoo/frontendcli) — 一款让你在安卓手机上写代码的移动端开发工具
 - [**flutter-termux**](https://github.com/termuxvoid/flutter-termux) — 让你能在手机终端里直接进行开发与构建
 - [**antigravity-android**](https://github.com/werdio325-png/antigravity-android) — 在安卓手机上运行悬浮窗与自动化软件的工具
+- [**XGoogle**](https://github.com/Leekin2/XGoogle) — 该项目已迁移至新仓库，不再在此更新。
 
 <span id="cat-17"></span>
 
