@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **55** 个项目
+> 自动同步于 GitHub Actions · 共收录 **56** 个项目
 
 ### 快速导航
 
@@ -17,7 +17,8 @@
 [浏览器扩展 (5)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
 [移动开发工具 (5)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
-[跨端互联工具 (1)](#cat-18) &emsp;·&emsp; [在线游戏与模拟器 (1)](#cat-19)
+[跨端互联工具 (1)](#cat-18) &emsp;·&emsp; [在线游戏与模拟器 (1)](#cat-19)<br><br>
+[AI 模型管理工具 (1)](#cat-20)
 
 ---
 
@@ -186,6 +187,12 @@
 ## 在线游戏与模拟器
 
 - [**fcgame**](https://github.com/lucaszhongsj/fcgame) — 能在手机和电脑上在线玩的红白机游戏模拟器
+
+<span id="cat-20"></span>
+
+## AI 模型管理工具
+
+- [**dsh-purge**](https://github.com/kingcharleslzy-ai/dsh-purge) — 一款用于管理和维护 DeepSeek 模型的辅助工具，支持备份与状态诊断。
 
 ---
 

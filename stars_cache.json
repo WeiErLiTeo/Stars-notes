@@ -504,5 +504,14 @@
       "移动开发工具"
     ],
     "summary": "该项目已迁移至新仓库，不再在此更新。"
+  },
+  "kingcharleslzy-ai/dsh-purge": {
+    "name": "dsh-purge",
+    "full_name": "kingcharleslzy-ai/dsh-purge",
+    "html_url": "https://github.com/kingcharleslzy-ai/dsh-purge",
+    "categories": [
+      "AI 模型管理工具"
+    ],
+    "summary": "一款用于管理和维护 DeepSeek 模型的辅助工具，支持备份与状态诊断。"
   }
 }
