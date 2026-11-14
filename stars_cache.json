@@ -513,5 +513,14 @@
       "AI 模型管理工具"
     ],
     "summary": "一款用于管理和维护 DeepSeek 模型的辅助工具，支持备份与状态诊断。"
+  },
+  "ccch1mneyyy/dsh-Go": {
+    "name": "dsh-Go",
+    "full_name": "ccch1mneyyy/dsh-Go",
+    "html_url": "https://github.com/ccch1mneyyy/dsh-Go",
+    "categories": [
+      "跨端互联工具"
+    ],
+    "summary": "用手机随时随地远程控制和操作你的电脑"
   }
 }
