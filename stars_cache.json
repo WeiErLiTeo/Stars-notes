@@ -522,5 +522,14 @@
       "跨端互联工具"
     ],
     "summary": "用手机随时随地远程控制和操作你的电脑"
+  },
+  "Yhoanes/antigravity-android": {
+    "name": "antigravity-android",
+    "full_name": "Yhoanes/antigravity-android",
+    "html_url": "https://github.com/Yhoanes/antigravity-android",
+    "categories": [
+      "逆向工程工具"
+    ],
+    "summary": "一款手机上的代码逆向分析与软件破解工具"
   }
 }

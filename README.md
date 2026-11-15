@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **57** 个项目
+> 自动同步于 GitHub Actions · 共收录 **58** 个项目
 
 ### 快速导航
 
@@ -18,7 +18,7 @@
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
 [移动开发工具 (5)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
 [跨端互联工具 (2)](#cat-18) &emsp;·&emsp; [在线游戏与模拟器 (1)](#cat-19)<br><br>
-[AI 模型管理工具 (1)](#cat-20)
+[AI 模型管理工具 (1)](#cat-20) &emsp;·&emsp; [逆向工程工具 (1)](#cat-21)
 
 ---
 
@@ -194,6 +194,12 @@
 ## AI 模型管理工具
 
 - [**dsh-purge**](https://github.com/kingcharleslzy-ai/dsh-purge) — 一款用于管理和维护 DeepSeek 模型的辅助工具，支持备份与状态诊断。
+
+<span id="cat-21"></span>
+
+## 逆向工程工具
+
+- [**antigravity-android**](https://github.com/Yhoanes/antigravity-android) — 一款手机上的代码逆向分析与软件破解工具
 
 ---
 
