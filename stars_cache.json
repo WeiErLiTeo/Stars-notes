@@ -540,5 +540,14 @@
       "AI Skills"
     ],
     "summary": "为AI助手生成的视觉品牌标识与图形设计扩展技能"
+  },
+  "OpenMontageInc/OpenMontage": {
+    "name": "OpenMontage",
+    "full_name": "OpenMontageInc/OpenMontage",
+    "html_url": "https://github.com/OpenMontageInc/OpenMontage",
+    "categories": [
+      "AI 视频创作系统"
+    ],
+    "summary": "把你的 AI 变成全能视频制作工作室的开源智能体系统。"
   }
 }
