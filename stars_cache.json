@@ -531,5 +531,14 @@
       "逆向工程工具"
     ],
     "summary": "一款手机上的代码逆向分析与软件破解工具"
+  },
+  "ousiaresearch/nous-branding": {
+    "name": "nous-branding",
+    "full_name": "ousiaresearch/nous-branding",
+    "html_url": "https://github.com/ousiaresearch/nous-branding",
+    "categories": [
+      "AI Skills"
+    ],
+    "summary": "为AI助手生成的视觉品牌标识与图形设计扩展技能"
   }
 }
