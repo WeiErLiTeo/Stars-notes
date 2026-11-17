@@ -549,5 +549,14 @@
       "AI 视频创作系统"
     ],
     "summary": "把你的 AI 变成全能视频制作工作室的开源智能体系统。"
+  },
+  "teng-lin/notebooklm-py": {
+    "name": "notebooklm-py",
+    "full_name": "teng-lin/notebooklm-py",
+    "html_url": "https://github.com/teng-lin/notebooklm-py",
+    "categories": [
+      "AI Skills"
+    ],
+    "summary": "通过Python和AI助手直接操作谷歌笔记本的非官方工具"
   }
 }
