@@ -13,8 +13,9 @@ IMAGE_DIR = "image"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 GH_TOKEN = os.environ.get("GITHUB_TOKEN")
 
-# 严格采用 3.0+ 家族模型梯队
+# 优先走免费层 Gemini 4 Hydrogen，3.0+ 家族按顺位降级兜底
 MODELS_CHAIN = [
+    "gemini-4-hydrogen",
     "gemini-3.8-flash",
     "gemini-3.6-flash",
     "gemini-3.5-flash",
@@ -134,24 +135,29 @@ def request_gemini_api(model_name, prompt):
     )
 
     gen_config = {
-        "temperature": 0.1,
         "responseMimeType": "application/json"
     }
 
-    if "3.8-flash" in model_name or "3.6-flash" in model_name:
+    if model_name.startswith("gemini-4-"):
         gen_config["thinkingConfig"] = {"thinkingLevel": "LOW"}
+    else:
+        gen_config["temperature"] = 0.1
+        if "3.8-flash" in model_name or "3.6-flash" in model_name:
+            gen_config["thinkingConfig"] = {"thinkingLevel": "LOW"}
 
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": gen_config
     }
 
-    resp = requests.post(url, json=payload, timeout=20)
+    resp = requests.post(url, json=payload, timeout=30)
     if resp.status_code != 200:
         raise RuntimeError(f"HTTP {resp.status_code} - {resp.text[:300]}")
 
     res_data = resp.json()
-    raw_text = res_data["candidates"][0]["content"]["parts"][0]["text"]
+    parts = res_data["candidates"][0]["content"]["parts"]
+    text_parts = [p["text"] for p in parts if "text" in p and not p.get("thought")]
+    raw_text = "".join(text_parts) if text_parts else parts[0]["text"]
     clean_json = re.sub(r"```(?:json)?|```", "", raw_text).strip()
     return json.loads(clean_json)
 
@@ -189,7 +195,7 @@ def render_compact_readme(cache_data):
     content += '  <img src="./image/Frieren.gif" width="240" alt="Frieren" />\n'
     content += '</p>\n\n'
 
-    # 2. 标题区：使用本地 Star.gif，尺寸 32x32 与大标题字号齐平
+    # 2. 标题区：使用本地 Star.gif，尺寸设置为 32x32 与大标题字号齐平
     star_path = get_star_gif_path()
     content += f'# <img src="{star_path}" width="32" height="32" valign="middle" alt="Star" /> Star Notes\n\n'
     content += f'> 自动同步于 GitHub Actions · 共收录 **{total_count}** 个项目\n\n'
