@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **62** 个项目
+> 自动同步于 GitHub Actions · 共收录 **61** 个项目
 
 ### 快速导航
 
@@ -13,7 +13,7 @@
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (8)](#cat-7)<br><br>
 [福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
-[网络与代理 (4)](#cat-10) &emsp;·&emsp; [AI Skills (6)](#cat-11)<br><br>
+[网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (6)](#cat-11)<br><br>
 [浏览器扩展 (5)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
 [移动开发工具 (5)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
@@ -122,7 +122,6 @@
 - [**googlevoice**](https://github.com/ssnhd/googlevoice) — Google Voice 申请注册教程与防回收自动保号策略
 - [**cfnew**](https://github.com/byJoey/cfnew) — Cloudflare 优选 IP 测速筛选与网络自动化脚本
 - [**Shadowrocket**](https://github.com/LOWERTOP/Shadowrocket) — 小火箭使用手册、模块规则语法与分流配置指南
-- [**CFAPEX**](https://github.com/shitouxiaoge-commits/CFAPEX) — 一款部署在云端的代理管理面板，方便用户配置和获取网络节点订阅。
 
 <span id="cat-11"></span>
 

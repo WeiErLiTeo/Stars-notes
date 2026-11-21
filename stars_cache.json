@@ -558,14 +558,5 @@
       "AI Skills"
     ],
     "summary": "通过Python和AI助手直接操作谷歌笔记本的非官方工具"
-  },
-  "shitouxiaoge-commits/CFAPEX": {
-    "name": "CFAPEX",
-    "full_name": "shitouxiaoge-commits/CFAPEX",
-    "html_url": "https://github.com/shitouxiaoge-commits/CFAPEX",
-    "categories": [
-      "网络与代理"
-    ],
-    "summary": "一款部署在云端的代理管理面板，方便用户配置和获取网络节点订阅。"
   }
 }
