@@ -558,5 +558,23 @@
       "AI Skills"
     ],
     "summary": "通过Python和AI助手直接操作谷歌笔记本的非官方工具"
+  },
+  "zou172866/agy-dart": {
+    "name": "agy-dart",
+    "full_name": "zou172866/agy-dart",
+    "html_url": "https://github.com/zou172866/agy-dart",
+    "categories": [
+      "AI Agent 与工具"
+    ],
+    "summary": "为谷歌开发工具提供加速与聊天历史搜索的插件"
+  },
+  "zjlgdx/claude-theme-pinboard": {
+    "name": "claude-theme-pinboard",
+    "full_name": "zjlgdx/claude-theme-pinboard",
+    "html_url": "https://github.com/zjlgdx/claude-theme-pinboard",
+    "categories": [
+      "应用主题与美化"
+    ],
+    "summary": "为Claude电脑和手机端打造的软木板风格主题"
   }
 }
