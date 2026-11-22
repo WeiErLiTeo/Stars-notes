@@ -4,12 +4,12 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **63** 个项目
+> 自动同步于 GitHub Actions · 共收录 **64** 个项目
 
 ### 快速导航
 
 [电脑实用神器 (7)](#cat-0) &emsp;·&emsp; [第三方 App (8)](#cat-1)<br><br>
-[iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (5)](#cat-3)<br><br>
+[iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (6)](#cat-3)<br><br>
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (9)](#cat-7)<br><br>
 [福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
@@ -66,6 +66,7 @@
 - [**live2d-widget**](https://github.com/stevenjoezhang/live2d-widget) — 网页端萌萌哒 Live2D 看板娘挂件
 - [**m3e-canvas**](https://github.com/lnkiai/m3e-canvas) — 在浏览器草绘UI界面并生成AI编程提示词
 - [**casa-serra**](https://github.com/Sam1983Aing/casa-serra) — 随着页面滚动将平面的户型图逐渐展示为立体的房屋。
+- [**weft**](https://github.com/JDhruv14/weft) — 将图像或视频重构为随鼠标交互的彩色条纹动效
 
 <span id="cat-4"></span>
 

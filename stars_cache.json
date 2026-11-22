@@ -576,5 +576,14 @@
       "应用主题与美化"
     ],
     "summary": "为Claude电脑和手机端打造的软木板风格主题"
+  },
+  "JDhruv14/weft": {
+    "name": "weft",
+    "full_name": "JDhruv14/weft",
+    "html_url": "https://github.com/JDhruv14/weft",
+    "categories": [
+      "前端 UI 与动效"
+    ],
+    "summary": "将图像或视频重构为随鼠标交互的彩色条纹动效"
   }
 }
