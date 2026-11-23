@@ -4,16 +4,16 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **64** 个项目
+> 自动同步于 GitHub Actions · 共收录 **66** 个项目
 
 ### 快速导航
 
 [电脑实用神器 (7)](#cat-0) &emsp;·&emsp; [第三方 App (8)](#cat-1)<br><br>
-[iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (6)](#cat-3)<br><br>
+[iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (7)](#cat-3)<br><br>
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (9)](#cat-7)<br><br>
 [福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
-[网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (6)](#cat-11)<br><br>
+[网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (7)](#cat-11)<br><br>
 [浏览器扩展 (5)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
 [移动开发工具 (5)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
@@ -67,6 +67,7 @@
 - [**m3e-canvas**](https://github.com/lnkiai/m3e-canvas) — 在浏览器草绘UI界面并生成AI编程提示词
 - [**casa-serra**](https://github.com/Sam1983Aing/casa-serra) — 随着页面滚动将平面的户型图逐渐展示为立体的房屋。
 - [**weft**](https://github.com/JDhruv14/weft) — 将图像或视频重构为随鼠标交互的彩色条纹动效
+- [**rolodex-testimonials**](https://github.com/madebysourasith-sudo/rolodex-testimonials) — 基于三维技术的复古旋转卡片式客户评价展示组件
 
 <span id="cat-4"></span>
 
@@ -135,6 +136,7 @@
 - [**unslop**](https://github.com/heydamir/unslop) — 优化AI生成的网页界面让它看起来更美观
 - [**nous-branding**](https://github.com/ousiaresearch/nous-branding) — 为AI助手生成的视觉品牌标识与图形设计扩展技能
 - [**notebooklm-py**](https://github.com/teng-lin/notebooklm-py) — 通过Python和AI助手直接操作谷歌笔记本的非官方工具
+- [**skills**](https://github.com/anthropics/skills) — 为AI Agent提供可复用的官方技能扩展库
 
 <span id="cat-12"></span>
 
