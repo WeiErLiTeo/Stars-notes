@@ -559,15 +559,6 @@
     ],
     "summary": "通过Python和AI助手直接操作谷歌笔记本的非官方工具"
   },
-  "zou172866/agy-dart": {
-    "name": "agy-dart",
-    "full_name": "zou172866/agy-dart",
-    "html_url": "https://github.com/zou172866/agy-dart",
-    "categories": [
-      "AI Agent 与工具"
-    ],
-    "summary": "为谷歌开发工具提供加速与聊天历史搜索的插件"
-  },
   "zjlgdx/claude-theme-pinboard": {
     "name": "claude-theme-pinboard",
     "full_name": "zjlgdx/claude-theme-pinboard",
@@ -603,5 +594,14 @@
       "AI Skills"
     ],
     "summary": "为AI Agent提供可复用的官方技能扩展库"
+  },
+  "lqvp/google-ai-pro-2y": {
+    "name": "google-ai-pro-2y",
+    "full_name": "lqvp/google-ai-pro-2y",
+    "html_url": "https://github.com/lqvp/google-ai-pro-2y",
+    "categories": [
+      "福利与自动签到"
+    ],
+    "summary": "通过脚本利用付费漏洞免费获取谷歌人工智能服务的超长体验资格。"
   }
 }

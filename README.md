@@ -11,8 +11,8 @@
 [电脑实用神器 (7)](#cat-0) &emsp;·&emsp; [第三方 App (8)](#cat-1)<br><br>
 [iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (7)](#cat-3)<br><br>
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
-[XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (9)](#cat-7)<br><br>
-[福利与自动签到 (1)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
+[XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (8)](#cat-7)<br><br>
+[福利与自动签到 (2)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (7)](#cat-11)<br><br>
 [浏览器扩展 (5)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
@@ -103,13 +103,13 @@
 - [**Eta**](https://github.com/Mangi-11/Eta) — 让AI能直接控制手机系统和屏幕的智能助手
 - [**carla**](https://github.com/k3nnethfrancis/carla) — 用于开发 AI 人设角色的终端对话与训练工具
 - [**ai-usage-dashboard**](https://github.com/hopechen067/ai-usage-dashboard) — 在电脑桌面实时显示各类 AI 额度与订阅使用量
-- [**agy-dart**](https://github.com/zou172866/agy-dart) — 为谷歌开发工具提供加速与聊天历史搜索的插件
 
 <span id="cat-8"></span>
 
 ## 福利与自动签到
 
 - [**kgcheckin**](https://github.com/develop202/kgcheckin) — 酷狗概念版每日听歌自动签到领取 VIP 脚本
+- [**google-ai-pro-2y**](https://github.com/lqvp/google-ai-pro-2y) — 通过脚本利用付费漏洞免费获取谷歌人工智能服务的超长体验资格。
 
 <span id="cat-9"></span>
 
