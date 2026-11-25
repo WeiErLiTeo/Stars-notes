@@ -630,5 +630,23 @@
       "AI 开发工具"
     ],
     "summary": "给谷歌编程工具加统计栏和额度监控的极简插件"
+  },
+  "superboyyy/xianyu_spider": {
+    "name": "xianyu_spider",
+    "full_name": "superboyyy/xianyu_spider",
+    "html_url": "https://github.com/superboyyy/xianyu_spider",
+    "categories": [
+      "数据采集工具"
+    ],
+    "summary": "自动搜索闲鱼商品并剔除重复信息的接口工具"
+  },
+  "MobileGL-Dev/MobileGlues-release": {
+    "name": "MobileGlues-release",
+    "full_name": "MobileGL-Dev/MobileGlues-release",
+    "html_url": "https://github.com/MobileGL-Dev/MobileGlues-release",
+    "categories": [
+      "游戏辅助与增强"
+    ],
+    "summary": "帮助手机流畅运行我的世界Java版的渲染工具"
   }
 }
