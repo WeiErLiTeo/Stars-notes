@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **66** 个项目
+> 自动同步于 GitHub Actions · 共收录 **69** 个项目
 
 ### 快速导航
 
@@ -12,14 +12,15 @@
 [iOS 插件 (4)](#cat-2) &emsp;·&emsp; [前端 UI 与动效 (7)](#cat-3)<br><br>
 [数据导出与搬家 (2)](#cat-4) &emsp;·&emsp; [实况照片 (3)](#cat-5)<br><br>
 [XP 模块 (2)](#cat-6) &emsp;·&emsp; [AI Agent 与工具 (8)](#cat-7)<br><br>
-[福利与自动签到 (2)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (2)](#cat-9)<br><br>
+[福利与自动签到 (2)](#cat-8) &emsp;·&emsp; [壁纸与媒体提取 (3)](#cat-9)<br><br>
 [网络与代理 (3)](#cat-10) &emsp;·&emsp; [AI Skills (7)](#cat-11)<br><br>
 [浏览器扩展 (5)](#cat-12) &emsp;·&emsp; [动画图片素材库 (2)](#cat-13)<br><br>
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
 [移动开发工具 (5)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (1)](#cat-17)<br><br>
 [跨端互联工具 (2)](#cat-18) &emsp;·&emsp; [在线游戏与模拟器 (1)](#cat-19)<br><br>
 [AI 模型管理工具 (1)](#cat-20) &emsp;·&emsp; [逆向工程工具 (1)](#cat-21)<br><br>
-[AI 视频创作系统 (1)](#cat-22) &emsp;·&emsp; [应用主题与美化 (1)](#cat-23)
+[AI 视频创作系统 (1)](#cat-22) &emsp;·&emsp; [应用主题与美化 (1)](#cat-23)<br><br>
+[AI 开发工具 (2)](#cat-24)
 
 ---
 
@@ -117,6 +118,7 @@
 
 - [**WallpaperEngineWorkshopDownloader**](https://github.com/SteamAutoCracks/WallpaperEngineWorkshopDownloader) — 免 Steam 客户端直接下载小红车创意工坊壁纸
 - [**repkg**](https://github.com/notscuffed/repkg) — Wallpaper Engine 的 PKG 提取与 TEX 图片解包转换器
+- [**agy-wallpaper-prism**](https://github.com/azwosile/agy-wallpaper-prism) — 提供各类高清壁纸资源的收集与整理工具
 
 <span id="cat-10"></span>
 
@@ -219,6 +221,13 @@
 ## 应用主题与美化
 
 - [**claude-theme-pinboard**](https://github.com/zjlgdx/claude-theme-pinboard) — 为Claude电脑和手机端打造的软木板风格主题
+
+<span id="cat-24"></span>
+
+## AI 开发工具
+
+- [**Antigravity-agy-dart**](https://github.com/zou172866/Antigravity-agy-dart) — 自动维护缓存并节省代币消耗的 AI 插件
+- [**antigravity-observer**](https://github.com/yunjuanyunshu114-byte/antigravity-observer) — 给谷歌编程工具加统计栏和额度监控的极简插件
 
 ---
 

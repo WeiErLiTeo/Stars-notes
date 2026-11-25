@@ -603,5 +603,32 @@
       "福利与自动签到"
     ],
     "summary": "通过脚本利用付费漏洞免费获取谷歌人工智能服务的超长体验资格。"
+  },
+  "zou172866/Antigravity-agy-dart": {
+    "name": "Antigravity-agy-dart",
+    "full_name": "zou172866/Antigravity-agy-dart",
+    "html_url": "https://github.com/zou172866/Antigravity-agy-dart",
+    "categories": [
+      "AI 开发工具"
+    ],
+    "summary": "自动维护缓存并节省代币消耗的 AI 插件"
+  },
+  "azwosile/agy-wallpaper-prism": {
+    "name": "agy-wallpaper-prism",
+    "full_name": "azwosile/agy-wallpaper-prism",
+    "html_url": "https://github.com/azwosile/agy-wallpaper-prism",
+    "categories": [
+      "壁纸与媒体提取"
+    ],
+    "summary": "提供各类高清壁纸资源的收集与整理工具"
+  },
+  "yunjuanyunshu114-byte/antigravity-observer": {
+    "name": "antigravity-observer",
+    "full_name": "yunjuanyunshu114-byte/antigravity-observer",
+    "html_url": "https://github.com/yunjuanyunshu114-byte/antigravity-observer",
+    "categories": [
+      "AI 开发工具"
+    ],
+    "summary": "给谷歌编程工具加统计栏和额度监控的极简插件"
   }
 }
