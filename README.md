@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **70** 个项目
+> 自动同步于 GitHub Actions · 共收录 **71** 个项目
 
 ### 快速导航
 
@@ -18,7 +18,7 @@
 [美食与菜谱 (1)](#cat-14) &emsp;·&emsp; [车载应用开发 (1)](#cat-15)<br><br>
 [移动开发工具 (5)](#cat-16) &emsp;·&emsp; [游戏辅助与增强 (2)](#cat-17)<br><br>
 [在线游戏与模拟器 (1)](#cat-18) &emsp;·&emsp; [AI 模型管理工具 (1)](#cat-19)<br><br>
-[跨端互联工具 (1)](#cat-20) &emsp;·&emsp; [逆向工程工具 (1)](#cat-21)<br><br>
+[跨端互联工具 (2)](#cat-20) &emsp;·&emsp; [逆向工程工具 (1)](#cat-21)<br><br>
 [AI 视频创作系统 (1)](#cat-22) &emsp;·&emsp; [应用主题与美化 (1)](#cat-23)<br><br>
 [AI 开发工具 (2)](#cat-24) &emsp;·&emsp; [数据采集工具 (1)](#cat-25)
 
@@ -203,6 +203,7 @@
 ## 跨端互联工具
 
 - [**dsh-Go**](https://github.com/ccch1mneyyy/dsh-Go) — 用手机随时随地远程控制和操作你的电脑
+- [**nectarlink**](https://github.com/thtbee/nectarlink) — 实现安卓手机与电脑的无缝连接，支持文件传输与协同操作。
 
 <span id="cat-21"></span>
 

@@ -639,5 +639,14 @@
       "游戏辅助与增强"
     ],
     "summary": "帮助手机流畅运行我的世界Java版的渲染工具"
+  },
+  "thtbee/nectarlink": {
+    "name": "nectarlink",
+    "full_name": "thtbee/nectarlink",
+    "html_url": "https://github.com/thtbee/nectarlink",
+    "categories": [
+      "跨端互联工具"
+    ],
+    "summary": "实现安卓手机与电脑的无缝连接，支持文件传输与协同操作。"
   }
 }
