@@ -648,5 +648,32 @@
       "跨端互联工具"
     ],
     "summary": "实现安卓手机与电脑的无缝连接，支持文件传输与协同操作。"
+  },
+  "badrisnarayanan/antigravity-claude-proxy": {
+    "name": "antigravity-claude-proxy",
+    "full_name": "badrisnarayanan/antigravity-claude-proxy",
+    "html_url": "https://github.com/badrisnarayanan/antigravity-claude-proxy",
+    "categories": [
+      "AI 开发工具"
+    ],
+    "summary": "转接特定平台AI模型给编程工具使用的代理"
+  },
+  "wycocoyu/agy-context-dashboard": {
+    "name": "agy-context-dashboard",
+    "full_name": "wycocoyu/agy-context-dashboard",
+    "html_url": "https://github.com/wycocoyu/agy-context-dashboard",
+    "categories": [
+      "AI 开发工具"
+    ],
+    "summary": "查看AI工具额度和用量并汉化界面的插件"
+  },
+  "togg53192-cmd/jailbreaks": {
+    "name": "jailbreaks",
+    "full_name": "togg53192-cmd/jailbreaks",
+    "html_url": "https://github.com/togg53192-cmd/jailbreaks",
+    "categories": [
+      "越狱资源合集"
+    ],
+    "summary": "整理并汇总了各种设备或系统的越狱相关资源"
   }
 }

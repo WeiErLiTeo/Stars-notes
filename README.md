@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **71** 个项目
+> 自动同步于 GitHub Actions · 共收录 **74** 个项目
 
 ### 快速导航
 
@@ -20,7 +20,8 @@
 [在线游戏与模拟器 (1)](#cat-18) &emsp;·&emsp; [AI 模型管理工具 (1)](#cat-19)<br><br>
 [跨端互联工具 (2)](#cat-20) &emsp;·&emsp; [逆向工程工具 (1)](#cat-21)<br><br>
 [AI 视频创作系统 (1)](#cat-22) &emsp;·&emsp; [应用主题与美化 (1)](#cat-23)<br><br>
-[AI 开发工具 (2)](#cat-24) &emsp;·&emsp; [数据采集工具 (1)](#cat-25)
+[AI 开发工具 (4)](#cat-24) &emsp;·&emsp; [数据采集工具 (1)](#cat-25)<br><br>
+[越狱资源合集 (1)](#cat-26)
 
 ---
 
@@ -229,12 +230,20 @@
 
 - [**Antigravity-agy-dart**](https://github.com/zou172866/Antigravity-agy-dart) — 自动维护缓存并节省代币消耗的 AI 插件
 - [**antigravity-observer**](https://github.com/yunjuanyunshu114-byte/antigravity-observer) — 给谷歌编程工具加统计栏和额度监控的极简插件
+- [**antigravity-claude-proxy**](https://github.com/badrisnarayanan/antigravity-claude-proxy) — 转接特定平台AI模型给编程工具使用的代理
+- [**agy-context-dashboard**](https://github.com/wycocoyu/agy-context-dashboard) — 查看AI工具额度和用量并汉化界面的插件
 
 <span id="cat-25"></span>
 
 ## 数据采集工具
 
 - [**xianyu_spider**](https://github.com/superboyyy/xianyu_spider) — 自动搜索闲鱼商品并剔除重复信息的接口工具
+
+<span id="cat-26"></span>
+
+## 越狱资源合集
+
+- [**jailbreaks**](https://github.com/togg53192-cmd/jailbreaks) — 整理并汇总了各种设备或系统的越狱相关资源
 
 ---
 
