@@ -675,5 +675,14 @@
       "越狱资源合集"
     ],
     "summary": "整理并汇总了各种设备或系统的越狱相关资源"
+  },
+  "google-gemini/demolab": {
+    "name": "demolab",
+    "full_name": "google-gemini/demolab",
+    "html_url": "https://github.com/google-gemini/demolab",
+    "categories": [
+      "AI 开发工具"
+    ],
+    "summary": "帮你快速搭建和复现谷歌大模型演示效果的工具集"
   }
 }

@@ -4,7 +4,7 @@
 
 # <img src="./image/Star.gif" width="32" height="32" valign="middle" alt="Star" /> Star Notes
 
-> 自动同步于 GitHub Actions · 共收录 **74** 个项目
+> 自动同步于 GitHub Actions · 共收录 **75** 个项目
 
 ### 快速导航
 
@@ -20,7 +20,7 @@
 [在线游戏与模拟器 (1)](#cat-18) &emsp;·&emsp; [AI 模型管理工具 (1)](#cat-19)<br><br>
 [跨端互联工具 (2)](#cat-20) &emsp;·&emsp; [逆向工程工具 (1)](#cat-21)<br><br>
 [AI 视频创作系统 (1)](#cat-22) &emsp;·&emsp; [应用主题与美化 (1)](#cat-23)<br><br>
-[AI 开发工具 (4)](#cat-24) &emsp;·&emsp; [数据采集工具 (1)](#cat-25)<br><br>
+[AI 开发工具 (5)](#cat-24) &emsp;·&emsp; [数据采集工具 (1)](#cat-25)<br><br>
 [越狱资源合集 (1)](#cat-26)
 
 ---
@@ -232,6 +232,7 @@
 - [**antigravity-observer**](https://github.com/yunjuanyunshu114-byte/antigravity-observer) — 给谷歌编程工具加统计栏和额度监控的极简插件
 - [**antigravity-claude-proxy**](https://github.com/badrisnarayanan/antigravity-claude-proxy) — 转接特定平台AI模型给编程工具使用的代理
 - [**agy-context-dashboard**](https://github.com/wycocoyu/agy-context-dashboard) — 查看AI工具额度和用量并汉化界面的插件
+- [**demolab**](https://github.com/google-gemini/demolab) — 帮你快速搭建和复现谷歌大模型演示效果的工具集
 
 <span id="cat-25"></span>
 
